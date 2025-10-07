@@ -376,3 +376,18 @@ p{
     gap: 10px;
   }
 }
+.typed-text {
+  visibility: hidden;
+  transition: visibility 0s linear 0s;
+}
+
+
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}

@@ -140,22 +140,44 @@ li, strong{
 
 .modal-content {
   background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  animation: fadeIn 0.3s ease;
+  padding: 2rem;
+  max-width: 650px;
+  margin: 5% auto;
+  border-radius: 16px;
+  overflow-y: auto;
+  max-height: 80vh;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  line-height: 1.7;
+
+  h2, h3 {
+    color: #00796B;
+    font-weight: 700;
+    margin-top: 1.5rem;
+  }
+
+  p, li {
+    color: #333;
+    font-size: 15px;
+  }
+
+  ul {
+    margin-left: 20px;
+    list-style-type: disc;
+  }
+
+  strong {
+    color: #000;
+  }
 }
 
 .close {
   float: right;
-  font-size: 24px;
+  font-size: 44px;
   cursor: pointer;
-  color: #444;
+  color: red;
 
   &:hover {
-    color: #00796b;
+    color: red;
   }
 }
 
@@ -164,3 +186,10 @@ li, strong{
   to { opacity: 1; transform: translateY(0); }
 }
 
+.modal-text {
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: black;
+  margin-top: 15px;
+}
