@@ -1,0 +1,234 @@
+.blog-card {
+  width: 100%;
+  min-height: 300px;
+  max-height: 450px;
+;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+ 
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+  
+    background-position: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px) scale(1.02);
+  }
+
+}
+
+.blog-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+  border-radius: 15px 15px 0 0;
+}
+
+.blog-content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.blog-card:hover .blog-content {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .blog-content {
+    opacity: 1;
+  }
+}
+
+.blog-content h2 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.blog-content p {
+  font-size: 1em;
+  opacity: 0.9;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.blog-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5em;
+  color: #ff6b6b;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-icon {
+  transform: scale(1.2);
+}
+
+.footer-note {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.blog-card:hover .footer-note {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .footer-note {
+    opacity: 1;
+  }
+}
+.support-card {
+  width: 100%;
+  min-height: 300px;
+  max-height: 450px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/12256017_3408.svg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/12256017_3408.svg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px) scale(1.02);
+  }
+
+  @media (max-width: 768px) {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/12256017_3408.svg');
+  }
+}
+
+.support-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border-radius: 15px 15px 0 0;
+}
+
+.support-content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.support-card:hover .support-content {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .support-content {
+    opacity: 1;
+  }
+}
+
+.support-content h2 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.support-content p {
+  font-size: 1em;
+  opacity: 0.9;
+  margin: 0;
+  padding: 0 20px;
+}
+
+.support-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5em;
+  color: #00f2fe;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.support-card:hover .support-icon {
+  transform: scale(1.2);
+}
+
+.footer-note {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.support-card:hover .footer-note {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .footer-note {
+    opacity: 1;
+  }
+}
+.card-container {
+  display: flex;
+  justify-content: flex-start; /* or center if you prefer */
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 100px auto;
+  padding-left: 250px; /* adjust based on sidebar width */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.blog-card,
+.support-card {
+  margin: 0; /* remove auto margin that was centering them individually */
+}

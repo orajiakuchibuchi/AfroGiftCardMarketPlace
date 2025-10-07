@@ -230,5 +230,25 @@
     </div>
 
   </div>
+
+ 
+<div class="card-container">
+  <div class="cards" *ngFor="let card of cards; let i = index"  [style.background-image]="'url(' + card.background + ')'">
+    <h2>{{ card.title }}</h2>
+    <button (click)="openModal(i)">Terms of Use</button>
+  </div>
 </div>
-<!-- Terms of Use Page End -->
+
+<!-- Modal -->
+<div class="modal" *ngIf="selectedCardIndex !== null" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <div class="modal-body" [innerHTML]="cards[selectedCardIndex].terms" style="color: black;"></div>
+  </div>
+</div>
+
+
+
+</div> <br>
+
+

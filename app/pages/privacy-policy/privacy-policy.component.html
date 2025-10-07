@@ -226,5 +226,24 @@
     </div>
 
   </div>
+  
+ 
+<div class="card-container">
+  <div class="cards" *ngFor="let card of cards; let i = index">
+    <img [src]="card.image" alt="Gift Card" class="card-img" />
+    <h2>{{ card.title }}</h2>
+    <button (click)="openModal(i)">Terms of Use</button>
+  </div>
+</div>
+
+<!-- Modal Popup -->
+<div class="modal" *ngIf="selectedCardIndex !== null">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>{{ cards[selectedCardIndex].title }}</h2>
+    <p>{{ cards[selectedCardIndex].terms }}</p>
+  </div>
+</div>
+
 </div>
 <!-- Privacy Policy Page End -->

@@ -12,7 +12,7 @@ import { CardDetailsComponent } from './pages/shop/buy/card-details/card-details
 import { DasboardComponent } from './pages/contact/dasboard/dasboard.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsComponent } from './pages/terms/terms.component';
-
+import { ProductComponent } from './pages/product/product.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -27,8 +27,11 @@ const routes: Routes = [
   {path: 'card-details', component: CardDetailsComponent},
   {path: 'secret-safe', component: DasboardComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
+  { path: 'partner/:cardName/privacy-policy', component: TermsComponent },
   {path: 'terms-of-use', component: TermsComponent},
-
+  { path: 'partner/:cardName/terms-of-use', component: TermsComponent },
+{ path: 'products', component: ProductComponent },
+  { path: 'products/:productId', component: ProductComponent },
 ];
 
 @NgModule({
