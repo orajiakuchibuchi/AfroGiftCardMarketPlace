@@ -34,22 +34,22 @@ export class TermsComponent implements OnInit {
       title: 'Afro gift ',
       background: 'assets/img/afro-logo.png',
       terms: `
-        <p>These Terms of Use govern the issuance and use of AfroGift Cards. By purchasing or using an AfroGift Card, you agree to comply with the terms outlined below.</p>
+        <p>These Terms of Use govern the issuance and use of Afro Gift . By purchasing or using an Afro Gift , you agree to comply with the terms outlined below.</p>
 
         <hr>
         <h4>1. Card Validity</h4>
-        <p>AfroGift Cards <strong>do not expire</strong> and can be used at any time in accordance with the terms and conditions of our selected partners.</p>
+        <p>Afro Gift  <strong>do not expire</strong> and can be used at any time in accordance with the terms and conditions of our selected partners.</p>
 
         <h4>2. Card Security</h4>
-        <p>Treat your AfroGift Card <strong>like cash</strong>. If your card is <strong>lost, stolen, or misplaced</strong>, AfroGift will not be responsible for its replacement or refund. You will be required to <strong>purchase a new card</strong>. AfroGift is not liable for any unauthorized use of a card once it has been delivered to the rightful customer.</p>
+        <p>Treat your Afro Gift  <strong>like cash</strong>. If your card is <strong>lost, stolen, or misplaced</strong>, AfroGift will not be responsible for its replacement or refund. You will be required to <strong>purchase a new card</strong>. AfroGift is not liable for any unauthorized use of a card once it has been delivered to the rightful customer.</p>
 
         <h4>3. Card Protection & Delivery</h4>
-        <p>All AfroGift Cards are <strong>protected and secured</strong> until they are successfully delivered to the customer. Once delivery is confirmed, the customer assumes full responsibility for safeguarding the card information.</p>
+        <p>All Afro Gift  are <strong>protected and secured</strong> until they are successfully delivered to the customer. Once delivery is confirmed, the customer assumes full responsibility for safeguarding the card information.</p>
 
         <h4>4. Data Protection & Authentication</h4>
         <p>AfroGift employs a <strong>secure authentication process</strong> to ensure that all customer data and card information are protected. We do not disclose customer data to third parties except as required by law or necessary to complete transactions.</p>
 
-        <h4>5. Types of AfroGift Cards</h4>
+        <h4>5. Types of Afro Gift </h4>
         <ul>
           <li><strong>General Card</strong> – Redeemable at selected AfroGift partner merchants.</li>
           <li><strong>Employment Card</strong> – Designed for employee rewards or incentives, tied to job descriptions and partner programs.</li>
@@ -57,7 +57,7 @@ export class TermsComponent implements OnInit {
         </ul>
 
         <h4>6. Card Redemption</h4>
-        <p>Redemption of AfroGift Cards is subject to the terms and conditions of participating merchants or partners. AfroGift is not responsible for partner policies, product availability, or quality of goods and services redeemed using the card.</p>
+        <p>Redemption of Afro Gift  is subject to the terms and conditions of participating merchants or partners. AfroGift is not responsible for partner policies, product availability, or quality of goods and services redeemed using the card.</p>
 
         <h4>7. Prohibited Uses</h4>
         <ul>
