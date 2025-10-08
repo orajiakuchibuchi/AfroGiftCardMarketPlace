@@ -20,7 +20,7 @@ export class PrivatePolicyComponent implements OnInit {
       <p>At <strong>Afro Gift Donation</strong>, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal data when you engage with our donation platform.</p>
       <h3>1. Information We Collect</h3>
       <ul>
-        <li><strong>Personal Information:</strong> Your name, email address, and contact details provided during donation or registration.</li>
+        <li><strong>Personal Information:</strong> Your name, email address, and contact details provided during donation.</li>
         <li><strong>Payment Information:</strong> Details related to your payment method processed securely through <em>MorrhPay</em>.</li>
         <li><strong>Technical Information:</strong> Device type, browser, and usage data for performance and analytics.</li>
       </ul>
@@ -43,7 +43,7 @@ export class PrivatePolicyComponent implements OnInit {
       <p>At <strong>Afro Gift</strong>, we value your trust and are committed to protecting your personal information. This Privacy Policy outlines how we handle data collected from users of our gift card platform.</p>
       <h3>1. Information We Collect</h3>
       <ul>
-        <li><strong>Account Data:</strong> Name, email, and contact details for account creation and order management.</li>
+        <li><strong>Account Data:</strong> Information like your name, email, phone number, and address, which are asked across our website are kept securely.</li>
         <li><strong>Transaction Data:</strong> Payment and purchase history processed through <em>MorrhPay</em>.</li>
         <li><strong>Device Information:</strong> Browser, device type, and usage patterns to enhance user experience.</li>
       </ul>
@@ -74,7 +74,6 @@ export class PrivatePolicyComponent implements OnInit {
       <ul>
         <li>To connect job seekers with potential employers.</li>
         <li>To verify authenticity and process employment transactions.</li>
-        <li>To comply with employment and tax regulations.</li>
       </ul>
       <h3>3. Protection</h3>
       <p>Afro Gift Employment uses encryption, secure servers, and access control to protect user data.</p>
@@ -100,7 +99,6 @@ export class PrivatePolicyComponent implements OnInit {
         <li>To verify business legitimacy and compliance.</li>
         <li>To process payments and transactions securely.</li>
         <li>To communicate partnership and operational updates.</li>
-        <li>To ensure regulatory and tax compliance.</li>
       </ul>
       <h3>3. Data Protection and Security</h3>
       <p>We employ encryption, secure servers, and restricted access to ensure confidentiality. All financial transactions are processed through <em>MorrhPay</em> in Naira (₦).</p>
