@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { ProductComponent } from './pages/product/product.component';
+import { PrivatePolicyComponent } from './pages/private-policy/private-policy.component';
+import { PrivateTermComponent } from './pages/private-term/private-term.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { ProductComponent } from './pages/product/product.component';
     DasboardComponent,
     PrivacyPolicyComponent,
     TermsComponent,
-    ProductComponent
+    ProductComponent,
+    PrivatePolicyComponent,
+    PrivateTermComponent
   ],
   imports: [
     BrowserModule,
