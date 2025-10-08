@@ -12,7 +12,7 @@ export class TermsComponent implements OnInit {
   cards = [
     {
       id: 'donation',
-      title: 'Afro Gift Donation',
+      title: 'Afro gift Donation',
       background: 'assets/img/product/gc23.JPG',
       terms: `
         <p><strong>Afro Donation</strong> is not responsible for the handling or delivery of parcels once they have been dispatched by the donor. Our responsibility begins upon receipt of the parcel at our designated office or collection point. We will acknowledge and confirm the delivery once the parcel is successfully received.</p>
@@ -31,7 +31,7 @@ export class TermsComponent implements OnInit {
     },
     {
       id: 'afrogift',
-      title: 'Afro Gift Card',
+      title: 'Afro gift ',
       background: 'assets/img/afro-logo.png',
       terms: `
         <p>These Terms of Use govern the issuance and use of AfroGift Cards. By purchasing or using an AfroGift Card, you agree to comply with the terms outlined below.</p>
@@ -80,30 +80,30 @@ export class TermsComponent implements OnInit {
     },
     {
       id: 'partner',
-      title: 'Afro Gift Partner',
+      title: 'Afro gift Partner',
       background: 'assets/img/product/gc23.JPG',
       terms: `
-        <p><strong>Afro Gift – Terms of Use for Partners</strong></p>
+        <p><strong>Afro gift – Terms of Use for Partners</strong></p>
 
-        <p>To qualify as a partner with <strong>Afro Gift</strong>, an entity must be a legally registered business. Eligible entities include sole proprietorships, limited liability companies, or corporate organizations duly recognized under applicable laws.</p>
+        <p>To qualify as a partner with <strong>Afro gift </strong>, an entity must be a legally registered business. Eligible entities include sole proprietorships, limited liability companies, or corporate organizations duly recognized under applicable laws.</p>
 
-        <p>Before partnership approval, all prospective partners will undergo a <strong>Know Your Customer (KYC)</strong> verification process. This process ensures authenticity, compliance, and trustworthiness. Only after successful verification and approval can an entity officially become an Afro Gift partner.</p>
+        <p>Before partnership approval, all prospective partners will undergo a <strong>Know Your Customer (KYC)</strong> verification process. This process ensures authenticity, compliance, and trustworthiness. Only after successful verification and approval can an entity officially become an Afro gift partner.</p>
 
         <p>All financial transactions and withdrawals related to partner activities are processed exclusively through <strong>MorrhPay</strong>, our authorized payment and financial service provider. MorrhPay is responsible for managing all partner withdrawals and ensures that all transactions are securely and efficiently conducted in <strong>Naira (₦)</strong>.</p>
 
-        <p>Partners must provide accurate business and banking information to facilitate seamless financial operations. Afro Gift reserves the right to verify, suspend, or terminate any partnership found to be in violation of these terms or any applicable regulations.</p>
+        <p>Partners must provide accurate business and banking information to facilitate seamless financial operations. Afro gift reserves the right to verify, suspend, or terminate any partnership found to be in violation of these terms or any applicable regulations.</p>
 
-        <p>By becoming a partner, you acknowledge and agree to these terms and understand that all financial dealings are managed through MorrhPay in accordance with Afro Gift’s operational and compliance standards.</p>
+        <p>By becoming a partner, you acknowledge and agree to these terms and understand that all financial dealings are managed through MorrhPay in accordance with Afro gift ’s operational and compliance standards.</p>
       `
     },
     {
       id: 'employment',
-      title: 'Afro Gift Employment',
+      title: 'Afro gift Employment',
       background: 'assets/img/product/gc23.JPG',
       terms: `
-        <h3><strong>Afro Gift Employment Terms of Use</strong></h3>
+        <h3><strong>Afro gift Employment Terms of Use</strong></h3>
 
-        <p>Afro Gift provides employment opportunities for both skilled and unskilled workers through our verified partners. Employment engagements facilitated through our platform are offered strictly on a <em>contract basis</em>.</p>
+        <p>Afro gift provides employment opportunities for both skilled and unskilled workers through our verified partners. Employment engagements facilitated through our platform are offered strictly on a <em>contract basis</em>.</p>
 
         <h4>Payment Terms:</h4>
         <p>Payments made by our partners to employees are <strong>not in cash</strong> but in <strong>gift cards</strong>, which can be redeemed exclusively at the respective partner’s stores or service outlets. These gift cards serve as the agreed medium of payment under the employment contract.</p>
@@ -114,9 +114,9 @@ export class TermsComponent implements OnInit {
         <p>By using this platform, all employees agree to applicable <strong>transaction fees</strong>, which may include <em>withdrawal fees</em> and <em>contract fees</em> as specified during each engagement.</p>
 
         <h4>Data Privacy and Security:</h4>
-        <p>Afro Gift is committed to ensuring the privacy and protection of all user data. Under no circumstances will we request an employee’s password or sensitive authentication details. Users are advised to remain vigilant and report any suspicious activity to our support team immediately.</p>
+        <p>Afro gift is committed to ensuring the privacy and protection of all user data. Under no circumstances will we request an employee’s password or sensitive authentication details. Users are advised to remain vigilant and report any suspicious activity to our support team immediately.</p>
 
-        <p>By accepting employment or engaging through the Afro Gift platform, you acknowledge and agree to abide by these terms and conditions.</p>
+        <p>By accepting employment or engaging through the Afro gift platform, you acknowledge and agree to abide by these terms and conditions.</p>
       `
     }
   ];

@@ -12,10 +12,10 @@ export class PrivacyPolicyComponent implements OnInit {
 cards = [
   {
     id: 'donation',
-    title: 'Afro Gift Donation',
+    title: 'Afro gift Donation',
     background: 'assets/img/product/gc23.JPG',
     terms: `
-      <h2><strong>Afro Gift Donation – Privacy Policy</strong></h2>
+      <h2><strong>Afro gift Donation – Privacy Policy</strong></h2>
       <p>At <strong>Afro Donation</strong>, we value your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, store, and protect your data when you interact with our platform, make donations, or engage with our services.</p>
       <hr/>
 
@@ -64,11 +64,11 @@ cards = [
     `
   },
 {
-  id: 'afro gift',
-  title: 'Afro Gift Card',
+  id: 'Afro gift ',
+  title: 'Afro gift Card',
   background: 'assets/img/afro-logo.png',
   terms: `
-    <h2><strong>Afro Gift Card – Privacy Policy</strong></h2>
+    <h2><strong>Afro gift Card – Privacy Policy</strong></h2>
     <p>At <strong>Afro Card</strong>, your privacy is our top priority. This Privacy Policy outlines how we collect, use, protect, and manage the personal and financial information of users who interact with our platform, purchase, redeem, or manage gift cards, or engage with our services.</p>
     <hr/>
 
@@ -125,10 +125,10 @@ cards = [
 
   {
     id: 'afro employment',
-    title: 'Afro Gift Employment',
+    title: 'Afro gift Employment',
     background: 'assets/img/product/gc23.JPG',
     terms: `
-      <h2><strong>Afro Gift Employment – Privacy Policy</strong></h2>
+      <h2><strong>Afro gift Employment – Privacy Policy</strong></h2>
       <p>At <strong>Afro Employment</strong>, we value your trust and are committed to safeguarding the personal and professional information you share with us.</p>
       <hr/>
 
@@ -162,10 +162,10 @@ cards = [
   },
   {
     id: 'afroemploymentpartner',
-    title: 'Afro Gift Partner',
+    title: 'Afro gift Partner',
     background: 'assets/img/product/gc23.JPG',
     terms: `
-      <h2><strong>Afro Gift Employment – Partner Privacy Policy</strong></h2>
+      <h2><strong>Afro gift Employment – Partner Privacy Policy</strong></h2>
       <p>At <strong>Afro Employment</strong>, we value the trust of our partners and are dedicated to maintaining the highest standards of data protection and transparency.</p>
       <hr/>
 
