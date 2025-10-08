@@ -32,7 +32,7 @@ export class ProductComponent implements OnInit {
     },
     {
       id: 'card',
-      title: 'Afro Gift Card',
+      title: 'afro gift',
       description: 'Exchange and redeem gift cards easily with AfroGiftCard MarketPlace.',
       icon: '💳',
       footer: 'Click to purchase a gift card',
