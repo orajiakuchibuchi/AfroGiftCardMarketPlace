@@ -1,3 +1,34 @@
+<!-- Page Banner Section Start-->
+<div class="page-banner-section section py-3" style="background-color: #fff">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Page Title Start -->
+      <div class="col-md-6">
+        <h1 class="text-white m-0" style="color: #080f1e !important">
+          Products
+        </h1>
+      </div>
+      <!-- Page Title End -->
+    
+      <!-- Breadcrumb Start -->
+      <div class="col-md-6 text-md-end mt-2 mt-md-0">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-md-end mb-0 transparent">
+            <li class="breadcrumb-item">
+              <a routerLink="/home" class="text-dark-50">Home</a>
+            </li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">
+              Products
+            </li>
+          </ol>
+        </nav>
+      </div>
+      <!-- Breadcrumb End -->
+    </div>
+  </div>
+</div>
+<!-- Page Banner Section End-->
+
 <div class="container my-4">
   <!-- All Product Cards -->
   <div *ngIf="!selectedProduct" class="row g-4">
@@ -7,13 +38,12 @@
   [ngStyle]="product.id === 'blog' ? {'width': '100%'} : {}"
 >
   <div
-    [ngClass]="product.cardClass"
+    [ngClass]="product.cardClass || ''"
     (click)="navigateTo(product.id)"
     [style.backgroundImage]="'url(' + product.image + ')'"
-  >
+  >  
     <div class="blog-content">
       <h2>{{ product.title }}</h2>
-      <p>{{ product.description }}</p>
     </div>
     <span class="blog-icon">{{ product.icon }}</span>
     <div class="footer-note">{{ product.footer }}</div>
@@ -23,40 +53,28 @@
   </div>
 
   <!-- Single Product View -->
-<div *ngIf="selectedProduct" class="container py-5" style="width: 460px; margin-left: -62px;">
-  <div
-    class="d-flex flex-column align-items-center justify-content-center text-center p-4"
-  >
-    <div
-      class="{{ selectedProduct.cardClass }} w-100"
-      [style.background-image]="'url(' + selectedProduct.image + ')'"
-      style="padding: rem; background-size: cover; background-position: center; width: 100%; border-radius: 1rem;"
+<div *ngIf="selectedProduct" class="container py-5 text-center">
+  <h1 class="fw-bold mb-4" style="color: #00796B;">{{ selectedProduct.title }}</h1>
+
+  <p class="lead mb-5" style="max-width: 700px; margin: 0 auto; line-height: 1.8;">
+    {{ selectedProduct.description }}
+  </p>
+
+  <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
+    <button
+      class="btn btn-lg px-4"
+      style="background: linear-gradient(90deg, #ff6b6b, #4ecdc4); color: black; border: none;"
+      (click)="exploreProduct(selectedProduct.exploreUrl)"
     >
-      <div class="blog-content">
-        <h2 class="fw-bold mb-3">{{ selectedProduct.title }}</h2>
-        <p class="mb-4">{{ selectedProduct.description }}</p>
-      </div>
+      Explore Product
+    </button>
 
-      <span class="blog-icon d-block mb-2">{{ selectedProduct.icon }}</span>
-      <div class="footer-note mb-4">{{ selectedProduct.footer }}</div>
-
-      <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3">
-        <button
-          class="btn btn-lg px-4"
-          style="background: linear-gradient(90deg, #ff6b6b, #4ecdc4); color: black; border: none;"
-          (click)="exploreProduct(selectedProduct.exploreUrl)"
-        >
-          Explore Product
-        </button>
-
-        <button
-          class="btn btn-lg px-4"
-          style="background: #4ecdc4; color: black; border: none;"
-          (click)="backToAll()"
-        >
-         Back to Products
-        </button>
-      </div>
-    </div>
+    <button
+      class="btn btn-lg px-4"
+      style="background: #4ecdc4; color: black; border: none;"
+      (click)="backToAll()"
+    >
+      Back to Products
+    </button>
   </div>
 </div>

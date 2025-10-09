@@ -1,116 +1,12 @@
-.blog-card {
-  width: 100%;
-  min-height: 300px;
-  max-height: 450px;
-;
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
- 
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-
-  &:hover {
-  
-    background-position: center;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(-5px) scale(1.02);
-  }
-
-}
-
-.blog-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-  border-radius: 15px 15px 0 0;
-}
-
-.blog-content {
-  text-align: center;
-  color: white;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.blog-card:hover .blog-content {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .blog-content {
-    opacity: 1;
-  }
-}
-
-.blog-content h2 {
-  font-size: 2.5em;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-  letter-spacing: 1.5px;
-  padding: 1rem; 
-  text-transform: uppercase;
-  color: white;
-}
-
-.blog-content p {
-  font-size: 1em;
-  opacity: 0.9;
-  margin: 0;
-  padding: 0 20px;
-}
-
-.blog-icon {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.5em;
-  color: #ff6b6b;
-  opacity: 0.8;
-  transition: transform 0.3s ease;
-}
-
-.blog-card:hover .blog-icon {
-  transform: scale(1.2);
-}
-
-.footer-note {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 0.8em;
-  color: rgba(255, 255, 255, 0.7);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.blog-card:hover .footer-note {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .footer-note {
-    opacity: 1;
-  }
-}
+/*
+ * Base Card Styles for .blog-card and .support-card
+ */
+.blog-card,
 .support-card {
   width: 100%;
   min-height: 300px;
   max-height: 450px;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/12256017_3408.svg');
+  /* blog-card is missing background property here, assuming it's set inline or via Angular */
   background-size: cover;
   background-position: center;
   border-radius: 15px;
@@ -120,23 +16,32 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-
-  &:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/12256017_3408.svg');
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(-5px) scale(1.02);
-  }
-
-  @media (max-width: 768px) {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/12256017_3408.svg');
-  }
 }
 
+/* Specific background for support-card, moved from nested SCSS */
+.support-card {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/12256017_3408.svg');
+}
+
+
+/* Hover Effects (Kept for visual feedback on interaction) */
+.blog-card:hover,
+.support-card:hover {
+  background-position: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.support-card:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/12256017_3408.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Card::before Gradient Border */
+.blog-card::before,
 .support-card::before {
   content: '';
   position: absolute;
@@ -144,28 +49,34 @@
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(90deg, #4facfe, #00f2fe);
   border-radius: 15px 15px 0 0;
 }
 
+.blog-card::before {
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+}
+
+.support-card::before {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+}
+
+---
+
+/*
+ * Content Visibility (Title/Content)
+ * The opacity is now set to 1 by default for both cards, making the title visible.
+ * Hover and media query opacity changes have been removed.
+ */
+.blog-content,
 .support-content {
   text-align: center;
   color: white;
   z-index: 1;
-  opacity: 0;
+  opacity: 1; /* Title is now visible by default */
   transition: opacity 0.3s ease-in-out;
 }
 
-.support-card:hover .support-content {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .support-content {
-    opacity: 1;
-  }
-}
-
+.blog-content h2,
 .support-content h2 {
   font-size: 2.5em;
   font-weight: 700;
@@ -174,6 +85,12 @@
   text-transform: uppercase;
 }
 
+.blog-content h2 {
+  padding: 1rem;
+  color: white;
+}
+
+.blog-content p,
 .support-content p {
   font-size: 1em;
   opacity: 0.9;
@@ -181,23 +98,96 @@
   padding: 0 20px;
 }
 
+/* Support Card Content Specifics */
+/* Assuming support-content has no specific padding or color besides the default white */
+
+---
+
+/*
+ * Icon Styles
+ */
+.blog-icon,
 .support-icon {
   position: absolute;
   top: 15px;
   right: 15px;
   font-size: 1.5em;
-  color: #00f2fe;
   opacity: 0.8;
   transition: transform 0.3s ease;
 }
 
+.blog-icon {
+  color: #ff6b6b;
+}
+
+.support-icon {
+  color: #00f2fe;
+}
+
+/* Icon Hover Effect */
+.blog-card:hover .blog-icon,
 .support-card:hover .support-icon {
   transform: scale(1.2);
 }
 
+
+/*
+ * Footer Note (The "footer-note" appears on hover, which you did not ask to change)
+ */
+
+.blog-card .footer-note,
+.support-card .footer-note {
+  opacity: 1; /* Visible on hover */
+}
+
+/* Footer Note Media Query (Kept as it makes the note visible on small screens) */
+@media (max-width: 768px) {
+  .footer-note {
+    opacity: 1;
+  }
+}
+
+---
+
+/*
+ * Container Layout
+ */
+.card-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 100px auto;
+  padding-left: 250px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Media Query Specific to support-card background (Kept) */
+@media (max-width: 768px) {
+  .support-card {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/images/12256017_3408.svg');
+  }
+}
+/*
+ * Base Card Styles for .blog-card and .support-card
+ * Note: position: relative is crucial for .footer-note absolute positioning
+ */
+.blog-card,
+.support-card {
+  /* ... (other styles) */
+  position: relative; /* CRUCIAL: Makes children with position: absolute reference this parent */
+  /* ... (other styles) */
+}
+
+/*
+ * Footer Note
+ */
 .footer-note {
   position: absolute;
-  bottom: 10px;
+  bottom: 10px; /* Pushes the element to the bottom edge of the card */
   left: 0;
   right: 0;
   text-align: center;
@@ -205,31 +195,7 @@
   color: rgba(255, 255, 255, 0.7);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  /* NO SIDE-BY-SIDE ISSUE HERE */
 }
 
-.support-card:hover .footer-note {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .footer-note {
-    opacity: 1;
-  }
-}
-.card-container {
-  display: flex;
-  justify-content: flex-start; /* or center if you prefer */
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin: 100px auto;
-  padding-left: 250px; /* adjust based on sidebar width */
-  width: 100%;
-  box-sizing: border-box;
-}
-
-
-.blog-card,
-.support-card {
-  margin: 0; /* remove auto margin that was centering them individually */
-}
+/* ... rest of the styles ... */

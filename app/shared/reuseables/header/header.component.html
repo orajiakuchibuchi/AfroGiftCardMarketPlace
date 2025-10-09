@@ -1,59 +1,46 @@
 <!-- Header Top Start -->
 <div class="header-top">
   <div class="container">
-    <div class="row">
-      <div class="col">
-        <!-- Header Top Wrapper Start -->
-        <div class="header-top-wrapper">
-          <div class="row">
-            <!-- Header Logo -->
-            <div class="header-logo col-md-4 col-12">
-              <a routerLink="/home" class="logo black-text" style=" margin-left: 10px;">
-                <img src="assets/img/mainLogo.jpg" alt="">
-              </a>
-            </div>
-            <!-- Header Social -->
-            <div class="header-social col-md-4 col-12">
-              <!-- <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a> -->
-            </div>
-
-            <!-- Hamburger -->
-            <div class="col-md-4 col-12 text-end d-md-none">
-              <button class="hamburger-icon" type="button" aria-label="Toggle menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="46" fill="currentColor" class="bi bi-list"
-                  viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-                </svg>
-              </button>
-            </div>
-            <!-- Account Menu -->
-            <div class="account-menu col-md-4 col-12">
-              <ul>
-                <li>
-                  <a routerLink="/buy-giftcard" class="black-text">
-                    <i class="fas fa-credit-card"></i> Purchase Card
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/check-giftcard" class="black-text">
-                    <i class="fas fa-list-alt"></i> Check Card
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- Header Top Wrapper End -->
+    <div class="header-top-wrapper d-flex justify-content-between align-items-center py-2">
+      
+      <!-- Logo -->
+      <div class="header-logo">
+        <a routerLink="/home" class="logo black-text" style="margin-left: 10px;">
+          <img src="assets/img/mainLogo.jpg" alt="">
+        </a>
       </div>
+
+      <!-- Hamburger (mobile only) -->
+      <button class="hamburger-icon d-md-none" type="button" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="46" fill="currentColor" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        </svg>
+      </button>
+
+      <!-- Account Menu -->
+      <div class="account-menu">
+  <ul class="d-flex gap-3 mb-0">
+    <li>
+      <a routerLink="/buy-giftcard" class="black-text">
+        <i class="fas fa-credit-card"></i> Purchase Card
+      </a>
+    </li>
+    <li>
+      <a routerLink="/check-giftcard" class="black-text">
+        <i class="fas fa-list-alt"></i> Check Card
+      </a>
+    </li>
+  </ul>
+</div>
+
+
     </div>
   </div>
 </div>
 <!-- Header Top End -->
+
 
 <!-- Header Bottom Start -->
 <div id="stickyHeader" class="header-bottom section">

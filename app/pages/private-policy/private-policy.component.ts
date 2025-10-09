@@ -39,7 +39,7 @@ export class PrivatePolicyComponent implements OnInit {
       <p>By donating on Afro Gift Donation, you agree to this Privacy Policy.</p>
     `,
     cards: `
-      <h2>Afro Gift Privacy Policy</h2>
+      <h2>Afro Gift - Card Privacy Policy</h2>
       <p>At <strong>Afro Gift</strong>, we value your trust and are committed to protecting your personal information. This Privacy Policy outlines how we handle data collected from users of our gift card platform.</p>
       <h3>1. Information We Collect</h3>
       <ul>

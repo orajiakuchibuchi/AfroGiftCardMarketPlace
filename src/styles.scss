@@ -1,7 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Ensure all elements correctly calculate width */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Global Reset: Ensure HTML and BODY never cause horizontal overflow */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Resetting to 100% since 100.1% failed */
+    overflow-x: hidden;
+}
+
+/*
+ * Aggressive Grid/Container Reset (Crucial for site-wide fix)
+ * Targets common framework classes like Bootstrap's .container, .row, and columns.
+ */
+.container, .container-fluid, .row, [class*="col-"] {
+    /* 1. Remove negative margins that push content off-screen */
+ 
+    
+    /* 2. Ensure total width never exceeds 100% */
+    max-width: 101% !important;
+    justify-content: center !important;
+    
+}
+
+/* Re-apply safe settings for images */
+img, video, svg {
+    max-width: 100%;
+    height: auto;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;box-sizing: border-box; }
 .cdk-overlay-pane{
     height: 700px;
     width: 1180px !important;
@@ -14,3 +45,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border: 1px solid #04350a;
     background-color: darkseagreen !important;
   }
+

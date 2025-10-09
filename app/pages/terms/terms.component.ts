@@ -10,7 +10,7 @@ export class TermsComponent {
   // Cards for Terms of Use
   termCards = [
     { route: 'donation', title: 'Afro Gift Donation', background: 'assets/img/product/gc23.JPG' },
-    { route: 'card', title: 'Afro Gift', background: 'assets/img/product/gc23.JPG' },
+    { route: 'card', title: 'Afro Gift Card', background: 'assets/img/product/gc23.JPG' },
     { route: 'employment', title: 'Afro Gift Employment', background: 'assets/img/product/gc23.JPG' },
     { route: 'partners', title: 'Afro Gift Partner', background: 'assets/img/product/gc23.JPG' }
   ];

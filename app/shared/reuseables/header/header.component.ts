@@ -39,4 +39,16 @@ toggleMobileMenu() {
    openEmployment() {
     window.open(environment.employmentDomain, '_blank');
   }
+  menuOpen = false;
+
+toggleSidebar() {
+  this.menuOpen = !this.menuOpen;
+  const body = document.body;
+  if (this.menuOpen) {
+    body.classList.add('sidebar-open');
+  } else {
+    body.classList.remove('sidebar-open');
+  }
+}
+
 }

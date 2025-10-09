@@ -35,7 +35,7 @@ export class PrivateTermComponent implements OnInit {
       `
     },
     card: {
-      title: 'Afro Gift – Terms of Use',
+      title: 'Afro Gift - Card Terms of Use',
       content: `
         <h3>1. Card Validity</h3>
         <p>Afro Gift do not expire and can be used at any time in accordance with the terms and conditions of our selected partners.</p>
