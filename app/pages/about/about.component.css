@@ -93,3 +93,18 @@ li, strong{
 .transparent{
   background: transparent;
 }
+.list-center {
+  display: inline-block; /* Keeps list centered under heading */
+  text-align: left; /* Keeps text and bullets aligned */
+  margin: 0 auto; /* Centers the list block */
+  padding-left: 20px; /* Adds a little indentation */
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.black-text {
+  color: #000;
+}
