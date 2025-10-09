@@ -1,0 +1,7 @@
+<br><br>
+<div class="private-term-container" *ngIf="selectedTerm">
+  <h1>{{ selectedTerm.title }}</h1>
+  <div class="private-term-content" [innerHTML]="selectedTerm.content"></div> <br>
+  <button (click)="goBack()" class="btn btn-success">Back To Terms Of Use</button>
+</div>
+<br><br>

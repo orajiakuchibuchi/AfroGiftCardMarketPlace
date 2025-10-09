@@ -26,8 +26,8 @@
         <p><strong>Last Updated:</strong> May 12, 2025</p>
 
         <p>
-          This Privacy Policy explains how Afro Gift Card (“we,” “our,” “us”) collects, uses, discloses, 
-          and protects your personal information when you use our website, mobile applications, and services. 
+          This Privacy Policy explains how Afro Gift (“we,” “our,” “us”) collects, uses, discloses, 
+          and protects your personal information when you use our website and services. 
           By accessing or using our platform, you agree to the terms outlined in this Privacy Policy. 
           If you do not agree, please discontinue use of our services.
         </p>
@@ -35,17 +35,14 @@
         <!-- Introduction -->
         <h2 class="h4 mt-4">1. Introduction</h2>
         <p>
-          Afro Gift Card is committed to protecting your privacy and maintaining the confidentiality 
-          of your personal data. Our platform serves individuals and businesses who wish to buy, 
-          sell, or exchange gift cards securely. This Privacy Policy outlines in detail the types 
+          Afro Gift is committed to protecting your privacy and maintaining the confidentiality 
+          of your personal data. Our platform serves individuals and businesses who wish to buy and redeem gift cards securely. This Privacy Policy outlines in detail the types 
           of information we collect, why we collect it, and how it is handled. 
         </p>
         <p>
           The protection of your data is not just a legal requirement but also a core part of 
           our values as a financial-technology company. We operate in accordance with 
-          applicable privacy laws including, where relevant, the General Data Protection 
-          Regulation (GDPR), Nigeria Data Protection Regulation (NDPR), and the California 
-          Consumer Privacy Act (CCPA).
+          applicable privacy law.
         </p>
 
         <!-- Information We Collect -->
@@ -161,8 +158,7 @@
         <h2 class="h4 mt-4">7. Security</h2>
         <p>
           We employ strong technical, physical, and administrative measures to protect 
-          your data from unauthorized access, use, or disclosure. However, no system is 
-          entirely foolproof, and you share information with us at your own risk.
+          your data from unauthorized access, use, or disclosure.
         </p>
 
         <!-- Retention -->
@@ -226,5 +222,23 @@
     </div>
 
   </div>
+  
+ 
+<div class="policy-card-container">
+  <div
+    *ngFor="let card of cards"
+    class="policy-card"
+    [style.background-image]="'url(' + card.background + ')'"
+  >
+    <div class="overlay">
+      <h2 style="color: white;">{{ card.title }}</h2>
+      <button (click)="viewPolicy(card.route)" class="btn btn-success">View Policy</button>
+    </div>
+  </div>
+</div>
+
+
+
+
 </div>
 <!-- Privacy Policy Page End -->

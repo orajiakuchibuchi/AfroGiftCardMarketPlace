@@ -1,0 +1,35 @@
+.policy-wrapper {
+  padding: 4rem 10%;
+  background: #fff;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+}
+
+.policy-content {
+  width: 100%;
+  margin: 0 auto;
+
+  h2, h3 {
+    color: #000;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  p, li {
+    color: #000;
+    font-size: 1rem;
+  }
+
+  ul {
+    margin-left: 1.5rem;
+    list-style-type: disc;
+  }
+
+  em {
+    font-style: normal;
+    color: #000;
+    font-weight: 600;
+  }
+}

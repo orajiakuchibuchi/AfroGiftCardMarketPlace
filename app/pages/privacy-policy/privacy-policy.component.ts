@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivacyPolicyComponent implements OnInit {
 
-  constructor() { }
+ cards = [
+  { route: 'donation', title: 'Afro Gift Donation', background: 'assets/img/product/gc23.JPG' },
+  { route: 'cards', title: 'Afro Gift Card', background: 'assets/img/product/gc23.JPG' },
+  { route: 'employment', title: 'Afro Gift Employment', background: 'assets/img/product/gc23.JPG' },
+  { route: 'partners', title: 'Afro Gift Partner', background: 'assets/img/product/gc23.JPG' }
+];
 
-  ngOnInit(): void {
-  }
+viewPolicy(route: string) {
+  this.router.navigate([`/products/${route}/privacy-policy`]);
+}
 
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {}
+
+ 
 }

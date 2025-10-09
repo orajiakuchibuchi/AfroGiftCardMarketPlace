@@ -2,6 +2,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,9 @@ import { DasboardComponent } from './pages/contact/dasboard/dasboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsComponent } from './pages/terms/terms.component';
+import { ProductComponent } from './pages/product/product.component';
+import { PrivatePolicyComponent } from './pages/private-policy/private-policy.component';
+import { PrivateTermComponent } from './pages/private-term/private-term.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,10 @@ import { TermsComponent } from './pages/terms/terms.component';
     CardDetailsComponent,
     DasboardComponent,
     PrivacyPolicyComponent,
-    TermsComponent
+    TermsComponent,
+    ProductComponent,
+    PrivatePolicyComponent,
+    PrivateTermComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +54,8 @@ import { TermsComponent } from './pages/terms/terms.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+     RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
