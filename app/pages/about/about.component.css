@@ -70,6 +70,13 @@ li, strong{
   padding-top: 80px;
   max-width:100%;
 }
+@media (max-width: 423px) {
+  .about-images {
+    margin-left: -50px;
+    padding-top: 40px;  /* reduce top padding for smaller screens */
+    width: 100%;        /* ensure it fits nicely */
+  }
+}
 
 .transparent{
   background: transparent;
