@@ -108,9 +108,9 @@ export class PrivateTermComponent implements OnInit {
       this.selectedTerm = this.privateTerms[termKey];
       // window.scrollTo({ top: 0, behavior: 'smooth' });
     } 
-    // else {
-    //   this.router.navigate(['/terms-of-use']);
-    // }
+    else {
+      this.router.navigate(['/terms-of-use']);
+    }
   }
 
   goBack(): void {

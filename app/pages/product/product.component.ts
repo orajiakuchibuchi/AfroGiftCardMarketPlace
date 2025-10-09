@@ -38,7 +38,7 @@ export class ProductComponent implements OnInit {
       id: 'card',
       title: 'Afro Gift Card',
       description: `Afro Gift offers a secure, fast, and easy way to trade your gift cards for instant value.
-      We ensure your transactions are smooth, reliable, and rewarding — giving you the confidence to buy, sell, and redeem gift cards effortlessly.`,
+      We ensure your transactions are smooth, reliable, and rewarding — giving you the confidence to buy and redeem gift cards effortlessly.`,
       exploreUrl: 'https://afrogitft.vercel.app/',
       image: 'assets/img/afro-logo-Copy.png',
       icon: '💳',
