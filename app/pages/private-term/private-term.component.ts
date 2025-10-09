@@ -103,13 +103,14 @@ export class PrivateTermComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    const termKey = this.route.snapshot.data['term']; // read from route data
+    const termKey = this.route.snapshot.data['term']; // read from route  data
     if (termKey && this.privateTerms[termKey]) {
       this.selectedTerm = this.privateTerms[termKey];
       // window.scrollTo({ top: 0, behavior: 'smooth' });
     } 
     else {
       this.router.navigate(['/terms-of-use']);
+      
     }
   }
 
