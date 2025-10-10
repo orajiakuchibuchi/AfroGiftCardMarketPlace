@@ -28,7 +28,7 @@
 
     <div class="error" *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)">
       <small *ngIf="emailCtrl.errors?.['required']">Email is required.</small>
-      <small *ngIf="emailCtrl.errors?.['email']">Please enter a valid email address.</small>
+      <small *ngIf="emailCtrl.errors?.['email']">Please enter a valid email address</small>
     </div>
   </form>
 </div>
