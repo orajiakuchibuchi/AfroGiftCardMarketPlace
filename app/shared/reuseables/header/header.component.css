@@ -128,8 +128,8 @@
   .hamburger-icon {
     display: flex !important;
     order: 1;
-    color: black !important; /* Make the SVG icon white */
-    background: transparent !important; /* Remove black background */
+    color: white !important; /* Make the SVG icon white */
+    background: linear-gradient(180deg, #080F1E, #008c5b) !important; 
     border: none;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent; /* Improve tap behavior on iOS */
