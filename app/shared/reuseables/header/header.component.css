@@ -129,6 +129,7 @@
     display: flex !important;
     /* Hamburger on the right of the logo */
     order: 1; 
+    color: black;
   }
 
   .account-menu {
