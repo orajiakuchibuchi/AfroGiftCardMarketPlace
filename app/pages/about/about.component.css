@@ -64,13 +64,47 @@ li, strong{
   color: #080F1E !important;
 }
 
-
+@media (max-width: 430px) {
+  .about-content{
+    margin-left: -10px;
+  }
+  
+}
 
 .about-image{
   padding-top: 80px;
   max-width:100%;
 }
-
+@media (max-width: 423px) {
+  .about-images {
+    margin-left: -50px;
+    padding-top: 40px;  /* reduce top padding for smaller screens */
+    width: 100%;        /* ensure it fits nicely */
+  }
+  .about-image {
+    margin-right:5px;
+    padding-top: 40px;  /* reduce top padding for smaller screens */
+    width: 100%;        /* ensure it fits nicely */
+  }
+}
+#hide{
+  display: none;
+}
 .transparent{
   background: transparent;
+}
+.list-center {
+  display: inline-block; /* Keeps list centered under heading */
+  text-align: left; /* Keeps text and bullets aligned */
+  margin: 0 auto; /* Centers the list block */
+  padding-left: 20px; /* Adds a little indentation */
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.black-text {
+  color: #000;
 }
