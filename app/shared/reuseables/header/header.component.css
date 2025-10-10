@@ -125,12 +125,16 @@
     flex: 0 0 auto;
   }
 
-  .hamburger-icon {
-    display: flex !important;
-    /* Hamburger on the right of the logo */
-    order: 1; 
-    color: black;
-  }
+ .hamburger-icon {
+  display: flex !important;
+  order: 1;
+  color: black !important;        /* white icon */
+  background: transparent !important; /* remove dark background */
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* better tap response */
+}
+
 
   .account-menu {
     /* Make account-menu take full width on a new line */
@@ -194,7 +198,7 @@
   top: 10px;
   right: 15px;
   font-size: 1.2rem;
-  color: #fff;
+  color: black;
 }
 
 .sidebar .nav-link {
