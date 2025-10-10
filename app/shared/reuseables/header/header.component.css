@@ -1,188 +1,176 @@
-#stickyHeader{
+/* ===============================
+   📌 Sticky Header
+   =============================== */
+#stickyHeader {
   background-color: rgb(23 51 33) !important;
 }
-  .sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    animation: slideDown 0.3s ease-in-out;
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.3s ease-in-out;
 }
 
 /* Smooth slide-down effect */
 @keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
+/* ===============================
+   📌 Header Top
+   =============================== */
 .header-top {
   background-color: #fff !important;
   border-bottom: 1px solid #eee;
   width: 100%;
   position: relative;
   z-index: 1000;
+}
 
-  .header-top-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: 0.5rem 1rem;
-  }
+.header-top .header-top-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0.5rem 1rem;
+}
 
-  /* ✅ Logo */
-  .header-logo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 1;
+/* ✅ Logo */
+.header-top .header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
 
-    .logo img {
-      max-width: 120px;
-      height: auto;
-      transition: transform 0.3s ease-in-out;
-    }
+.header-top .header-logo .logo img {
+  max-width: 120px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
 
-    .logo img:hover {
-      transform: scale(1.05);
-    }
-  }
+.header-top .header-logo .logo img:hover {
+  transform: scale(1.05);
+}
 
-  /* ✅ Account Menu */
-  .account-menu {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex: 1;
+/* ✅ Account Menu */
+.header-top .account-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
 
-    ul {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+.header-top .account-menu ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-      li a {
-        color: #000;
-        font-weight: 500;
-        text-decoration: none;
-        transition: color 0.3s;
+.header-top .account-menu ul li a {
+  color: #000;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
 
-        &:hover {
-          color: #00796b;
-        }
-      }
-    }
-  }
+.header-top .account-menu ul li a:hover {
+  color: #00796b;
+}
 
-  /* ✅ Hamburger Icon */
-  .hamburger-icon {
-    width: 30px;
-    height: 25px;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-left: 1rem;
+/* ===============================
+   🍔 Hamburger Icon
+   =============================== */
+.hamburger-icon {
+  display: none;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #080f1e, #008c5b) !important;
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent; /* iPhone tap fix */
+  transition: background 0.3s ease;
+}
 
-    span {
-      height: 3px;
-      background: #000; /* black lines, not white */
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-  }
+.hamburger-icon svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+  fill: #ffffff !important; /* visible white lines */
+}
 
-  /* ===============================
-     📱 Mobile Responsiveness
-     =============================== */
- /* ===============================
-  📱 Mobile Responsiveness (Modified)
-  =============================== */
+.hamburger-icon:hover {
+  background: linear-gradient(180deg, #008c5b, #080f1e);
+}
+
+/* ===============================
+   📱 Mobile Responsiveness
+   =============================== */
 @media (max-width: 768px) {
-  .header-top-wrapper {
-    /* 1. Allow items to wrap to a new line */
-    flex-wrap: wrap; 
-    /* 2. Vertically space out items on multi-line layout */
-    align-items: flex-start; 
-    /* Add padding to account for the new height */
-    padding-bottom: 0.5rem; 
+  .header-top .header-top-wrapper {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-bottom: 0.5rem;
   }
 
-  .header-logo {
-    /* Logo stays on the left */
+  .header-top .header-logo {
     flex: 0 0 auto;
   }
 
   .hamburger-icon {
     display: flex !important;
     order: 1;
-    color: white !important; /* Make the SVG icon white */
-    background: linear-gradient(180deg, #080F1E, #008c5b) !important; 
-    border: none;
-      justify-content: center;
-  align-items: center;
-    cursor: pointer;
-     border-radius: 6px;
-    -webkit-tap-highlight-color: transparent; /* Improve tap behavior on iOS */
+    margin-left: 1rem;
   }
 
- .hamburger-icon svg {
-  display: block;
-  width: 28px;
-  height: 28px;
-  fill: #fff !important;
-}
-
-
-  .account-menu {
-    /* Make account-menu take full width on a new line */
+  .header-top .account-menu {
     width: 100%;
-    /* Force it to the second line */
-    order: 2; 
-    /* Remove the flex properties that constrained its width/position */
+    order: 2;
     flex: none;
-    /* Center the menu items horizontally */
     justify-content: center;
-    /* Add a little top margin to separate it from the logo/hamburger line */
     margin-top: 10px;
-    padding-top: 5px; /* Add internal padding */
-    border-top: 1px solid #eee; /* Optional: A separator line */
-    
-    ul {
-      /* Keep existing gap/font size */
-      gap: 10px;
-      font-size: 14px;
-      /* Remove bottom margin from the list itself */
-      margin-bottom: 0 !important;
-    }
+    padding-top: 5px;
+    border-top: 1px solid #eee;
+  }
+
+  .header-top .account-menu ul {
+    gap: 10px;
+    font-size: 14px;
+    margin-bottom: 0 !important;
   }
 }
 
-  @media (max-width: 480px) {
-    .header-logo .logo img {
-      max-width: 80px;
-    }
+@media (max-width: 480px) {
+  .header-top .header-logo .logo img {
+    max-width: 80px;
+  }
 
-    .account-menu ul li a {
-      font-size: 13px;
-    }
+  .header-top .account-menu ul li a {
+    font-size: 13px;
   }
 }
 
 /* ===============================
-   📋 SIDEBAR STYLES
+   📋 Sidebar
    =============================== */
 .sidebar {
   position: fixed;
@@ -190,10 +178,10 @@
   left: -270px;
   width: 260px;
   height: 100vh;
-  background: linear-gradient(180deg, #080F1E, #008c5b);
+  background: linear-gradient(180deg, #080f1e, #008c5b);
   color: #fff;
   z-index: 9999;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   box-shadow: 4px 0 10px #0006;
   overflow-y: auto;
   padding-top: 2rem;
@@ -217,25 +205,21 @@
   color: #ccc;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: background 0.2s ease;
+}
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-  }
+.sidebar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 /* Overlay for sidebar */
 body.sidebar-open::before {
   content: '';
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 9990;
-}
-.hamburger-icon svg {
-  width: 26px;
-  height: 26px;
-  display: block;
 }
