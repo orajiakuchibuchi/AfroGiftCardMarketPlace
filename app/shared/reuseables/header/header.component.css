@@ -125,16 +125,21 @@
     flex: 0 0 auto;
   }
 
- .hamburger-icon {
-  display: flex !important;
-  order: 1;
-  color: black !important;        /* white icon */
-  background: transparent !important; /* remove dark background */
-  border: none;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent; /* better tap response */
-}
+  .hamburger-icon {
+    display: flex !important;
+    order: 1;
+    color: black !important; /* Make the SVG icon white */
+    background: transparent !important; /* Remove black background */
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Improve tap behavior on iOS */
+  }
 
+  .hamburger-icon svg {
+    width: 26px;
+    height: 26px;
+    display: block;
+  }
 
   .account-menu {
     /* Make account-menu take full width on a new line */
@@ -223,4 +228,9 @@ body.sidebar-open::before {
   height: 100%;
   background: rgba(0,0,0,0.6);
   z-index: 9990;
+}
+.hamburger-icon svg {
+  width: 26px;
+  height: 26px;
+  display: block;
 }
