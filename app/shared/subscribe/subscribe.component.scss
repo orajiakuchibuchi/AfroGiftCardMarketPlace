@@ -14,7 +14,10 @@
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
-    flex-wrap: nowrap; // ❗ Keep input & button on one line
+    flex-wrap: nowrap; // keep input & button side-by-side
+    flex-direction: row;
+    position: relative;
+    flex-wrap: wrap; // allow the error to take full width below
 
     input {
       padding: 0.75rem 1rem;
@@ -55,7 +58,7 @@
     }
 
     .error {
-      width: 100%;
+      flex-basis: 100%; // forces it to occupy a new line
       text-align: center;
       margin-top: 0.5rem;
 
@@ -66,15 +69,12 @@
     }
   }
 
-  // 🧩 Responsive adjustment for small screens
+  // Responsive adjustment
   @media (max-width: 480px) {
     .subscribe-form {
-      flex-direction: row; // stay side by side
-      justify-content: center;
-      align-items: stretch;
-
+      flex-wrap: wrap; // allow wrapping only for error line
       input {
-        width: 60%;
+        width: 65%;
       }
 
       button {
