@@ -131,15 +131,20 @@
     color: white !important; /* Make the SVG icon white */
     background: linear-gradient(180deg, #080F1E, #008c5b) !important; 
     border: none;
+      justify-content: center;
+  align-items: center;
     cursor: pointer;
+     border-radius: 6px;
     -webkit-tap-highlight-color: transparent; /* Improve tap behavior on iOS */
   }
 
-  .hamburger-icon svg {
-    width: 26px;
-    height: 26px;
-    display: block;
-  }
+ .hamburger-icon svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+  fill: #fff !important;
+}
+
 
   .account-menu {
     /* Make account-menu take full width on a new line */
