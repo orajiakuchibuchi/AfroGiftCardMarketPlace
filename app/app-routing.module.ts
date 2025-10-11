@@ -15,6 +15,8 @@ import { TermsComponent } from './pages/terms/terms.component';
 import { ProductComponent } from './pages/product/product.component';
 import { PrivatePolicyComponent } from './pages/private-policy/private-policy.component';
 import { PrivateTermComponent } from './pages/private-term/private-term.component';
+import { SubscribeComponent } from './shared/subscribe/subscribe.component';
+import { LogoComponent } from './shared/reuseables/logo/logo.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
@@ -36,17 +38,14 @@ const routes: Routes = [
   { path: 'products/:policy/privacy-policy', component: PrivatePolicyComponent },
 
 
-//   { path: 'products/donation/privacy-policy', component: PrivatePolicyComponent, data: { policy: 'donation' } },
-// { path: 'products/card/privacy-policy', component: PrivatePolicyComponent, data: { policy: 'card' } },
-// { path: 'products/partners/privacy-policy', component: PrivatePolicyComponent, data: { policy: 'partner' } },
-// { path: 'products/employment/privacy-policy', component: PrivatePolicyComponent, data: { policy: 'employment' } },
-
+{ path: 'subscribe', component:SubscribeComponent},
   { path: 'term/:id', component: PrivateTermComponent },
 { path: 'partner/:cardName/terms-of-use', component: TermsComponent },
 { path: 'terms-of-use', component: TermsComponent },
 
   { path: 'products', component: ProductComponent },
   { path: 'products/:productId', component: ProductComponent },
+  {path:'logo', component: LogoComponent}
 ];
 
 @NgModule({

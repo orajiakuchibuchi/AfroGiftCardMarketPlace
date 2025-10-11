@@ -1,0 +1,34 @@
+<div class="subscribe-container text-center">
+  <div *ngIf="subscribed" class="thank-you">
+    Thank you for subscribing!
+  </div>
+
+  <form
+    #subscribeForm="ngForm"
+    (ngSubmit)="onSubmit(subscribeForm)"
+    class="subscribe-form"
+    novalidate
+    autocomplete="off"
+  >
+    <div class="input-row">
+      <input style="color: black;"
+        type="email"
+        placeholder="Enter your email"
+        [(ngModel)]="email"
+        name="email"
+        #emailCtrl="ngModel"
+        required
+        email
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+      <button type="submit" [disabled]="!subscribeForm.valid">Subscribe</button>
+    </div>
+
+    <div class="error" *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)">
+      <small *ngIf="emailCtrl.errors?.['required']">Email is required.</small>
+      <small *ngIf="emailCtrl.errors?.['email']">Please enter a valid email address</small>
+    </div>
+  </form>
+</div>

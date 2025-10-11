@@ -6,18 +6,27 @@
       <!-- Logo -->
       <div class="header-logo">
         <a routerLink="/home" class="logo black-text" style="margin-left: 10px;">
-          <img src="assets/img/mainLogo.jpg" alt="">
+        <!-- Old -->
+<!-- <img src="assets/img/mainLogo.jpg" alt="Logo"> -->
+
+<!-- New -->
+<app-logo [productName]="''"></app-logo>
+
         </a>
       </div>
 
-      <!-- Hamburger (mobile only) -->
-      <button class="hamburger-icon d-md-none" type="button" aria-label="Toggle menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="46" fill="currentColor" class="bi bi-list"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-        </svg>
-      </button>
+
+     <!-- ✅ Hamburger (mobile only, Safari-safe) -->
+<button class="hamburger-icon d-md-none" type="button" aria-label="Toggle menu">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 16 16">
+    <path
+      d="M2 12.5a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2zm0-4a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2zm0-4a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2z"
+      fill="#ffffff"
+    />
+  </svg>
+</button>
+
+
 
       <!-- Account Menu -->
       <div class="account-menu">
@@ -50,7 +59,7 @@
       <div class="header-bottom-wrapper text-center col">
         <!-- Header Bottom Logo -->
         <div class="header-bottom-logo">
-          <a routerLink="/home" class="logo"><img src=".././../../../src/assets/img/mainLogo.jpg" alt="logo" /> m</a>
+          <a routerLink="/home" class="logo"><img src=".././../../../src/assets/img/mainLogo.jpg" alt="logo" /></a>
         </div>
 
         <!-- Main Menu -->
@@ -87,8 +96,8 @@
 <!-- Header Bottom End -->
 
 <!-- Sidebar -->
-<div id="sidebar" class="sidebar bg-dark text-white" #sidebarElement>
-  <button class="btn-close btn-close-white m-3 sidebar-close" aria-label="Close"></button>
+<div id="sidebar" class="sidebar bg-dark" #sidebarElement>
+  <button class="btn-close btn-close-white m-3 sidebar-close" aria-label="Close" ></button>
   <ul class="nav flex-column p-4">
 
     <!-- Home -->
