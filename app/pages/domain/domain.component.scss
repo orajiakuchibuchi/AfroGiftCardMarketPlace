@@ -1,0 +1,275 @@
+// Variables
+$primary-color: rgb(23, 51, 33);
+$primary-dark: rgb(18, 41, 26);
+$primary-light: rgb(35, 71, 45);
+$secondary-color: #2c3e50;
+$accent-color: #e74c3c;
+$success-color: #28a745;
+$light-color: #f8f9fa;
+$gray-color: #6c757d;
+$light-gray: #e9ecef;
+
+.domain-page {
+  padding: 80px 0;
+  background-color: $light-color;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  
+  h2 {
+    font-size: 2.2rem;
+    color: $secondary-color;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+  
+  p {
+    color: $gray-color;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+.domain-search-box {
+  background: white;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+  
+  h3 {
+    font-size: 1.8rem;
+    color: $secondary-color;
+    margin-bottom: 15px;
+  }
+  
+  p {
+    color: $gray-color;
+    margin-bottom: 30px;
+  }
+}
+
+.domain-form {
+  display: flex;
+  margin: 30px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  .domain-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid $light-gray;
+    border-right: none;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+  
+  .domain-extension {
+    padding: 15px 20px;
+    background-color: $light-gray;
+    border: 2px solid $light-gray;
+    border-left: none;
+    border-right: none;
+    font-weight: 600;
+    color: $secondary-color;
+    display: flex;
+    align-items: center;
+  }
+  
+  .domain-btn {
+    background: linear-gradient(135deg, $primary-color, $primary-dark);
+    color: white;
+    border: none;
+    padding: 0 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover:not(:disabled) {
+      background: linear-gradient(135deg, $primary-dark, $primary-color);
+      transform: translateY(-1px);
+    }
+    
+    &:disabled {
+      background: $gray-color;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+}
+
+.domain-result {
+  margin-top: 30px;
+  padding: 25px;
+  background: linear-gradient(135deg, $light-color, $light-gray);
+  border-radius: 8px;
+  border-left: 4px solid $success-color;
+  
+  .domain-available {
+    color: $success-color;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    
+    i {
+      margin-right: 8px;
+    }
+  }
+  
+  .price-info {
+    margin: 15px 0;
+    
+    .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $secondary-color;
+    }
+  }
+  
+  p {
+    color: $gray-color;
+    margin-bottom: 20px;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, $primary-color, $primary-dark);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(135deg, $primary-dark, $primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(23, 51, 33, 0.3);
+  }
+  
+  &-primary {
+    background: linear-gradient(135deg, $primary-color, $primary-dark);
+    
+    &:hover {
+      background: linear-gradient(135deg, $primary-dark, $primary-color);
+    }
+  }
+}
+
+.domain-features {
+  margin-top: 60px;
+  
+  h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: $secondary-color;
+    margin-bottom: 40px;
+  }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    color: $primary-color;
+    margin-bottom: 20px;
+  }
+  
+  h4 {
+    font-size: 1.3rem;
+    color: $secondary-color;
+    margin-bottom: 15px;
+  }
+  
+  p {
+    color: $gray-color;
+    line-height: 1.6;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .domain-page {
+    padding: 40px 0;
+  }
+  
+  .section-title {
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  .domain-search-box {
+    padding: 25px;
+    margin-bottom: 40px;
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .domain-form {
+    flex-direction: column;
+    
+    .domain-input,
+    .domain-extension,
+    .domain-btn {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      border: 2px solid $light-gray;
+    }
+    
+    .domain-extension {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 20px;
+  }
+}

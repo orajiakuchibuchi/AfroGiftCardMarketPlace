@@ -1,0 +1,83 @@
+<div class="domain-page">
+  <div class="container">
+    <div class="section-title">
+      <h2>Domain Registration</h2>
+      <p>Find and register your perfect domain name with Afro Gift</p>
+    </div>
+    
+    <div class="domain-search-box">
+      <h3>Find Your Perfect Domain</h3>
+      <p>Search for your ideal domain name with .afrogift.com.ng extension</p>
+      
+      <div class="domain-form">
+        <input 
+          type="text" 
+          class="domain-input" 
+          [(ngModel)]="domainName"
+          placeholder="Enter your domain name"
+          (keyup.enter)="searchDomain()">
+        <span class="domain-extension">.afrogift.com.ng</span>
+        <button 
+          class="domain-btn" 
+          (click)="searchDomain()"
+          [disabled]="isLoading">
+          {{ isLoading ? 'Searching...' : 'Search' }}
+        </button>
+      </div>
+      
+      <div class="domain-result" *ngIf="searchResult">
+        <div class="result-content" *ngIf="searchResult.available">
+          <p class="domain-available">
+            <i class="fas fa-check-circle"></i>
+            Congratulations! <strong>{{ searchResult.domain }}</strong> is available!
+          </p>
+          <div class="price-info">
+            <span class="price">₦{{ searchResult.price }}/{{ searchResult.period }}</span>
+          </div>
+          <p>You can register this domain with Afro Gift Card</p>
+          <button class="btn btn-primary" (click)="buyDomain()">
+            <i class="fas fa-gift"></i>
+            Buy with Afro Gift Card
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="domain-features">
+      <h3>Why Register with Afro Gift?</h3>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-gift"></i>
+          </div>
+          <h4>Afro Gift Card Payment</h4>
+          <p>Conveniently pay for your domain registration using Afro Gift Cards.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h4>Free Privacy Protection</h4>
+          <p>Keep your personal information private with free WHOIS privacy.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sync"></i>
+          </div>
+          <h4>Auto-Renewal</h4>
+          <p>Never lose your domain with our automatic renewal option.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h4>Easy Management</h4>
+          <p>Manage your domain settings easily through our control panel.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

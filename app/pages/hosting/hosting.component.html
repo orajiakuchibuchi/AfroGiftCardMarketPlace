@@ -1,0 +1,127 @@
+<div class="hosting-page">
+  <div class="container">
+    <div class="section-title">
+      <h2>Afro Gift Hosting Solutions</h2>
+      <p>Choose the perfect hosting plan for your website</p>
+    </div>
+    
+    <div class="tabs-container">
+      <div class="tabs-header">
+        <button 
+          class="tab-btn" 
+          [class.active]="activeTab === 'shared'"
+          (click)="switchTab('shared')">
+          <i class="fas fa-users"></i>
+          Shared Hosting
+        </button>
+        <button 
+          class="tab-btn" 
+          [class.active]="activeTab === 'cloud'"
+          (click)="switchTab('cloud')">
+          <i class="fas fa-cloud"></i>
+          Cloud Hosting
+        </button>
+      </div>
+      
+      <div class="tab-content">
+        <!-- Shared Hosting Plans -->
+        <div class="plans-section" *ngIf="activeTab === 'shared'">
+          <div class="plans-grid">
+            <div 
+              class="plan-card" 
+              *ngFor="let plan of filteredPlans"
+              [class.popular]="plan.popular">
+              
+              <div class="plan-header">
+                <h3>{{ plan.name }}</h3>
+                <div class="plan-price">
+                  ₦{{ plan.price }}<span>/{{ plan.period }}</span>
+                </div>
+              </div>
+              
+              <div class="plan-body">
+                <ul class="plan-features">
+                  <li *ngFor="let feature of plan.features">
+                    <i class="fas fa-check"></i>
+                    {{ feature }}
+                  </li>
+                </ul>
+                
+                <button 
+                  class="btn" 
+                  [class.btn-primary]="plan.popular"
+                  [class.btn-outline]="!plan.popular"
+                  (click)="buyPlan(plan)">
+                  <i class="fas fa-gift"></i>
+                  Buy with Afro Gift Card
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="features-section">
+            <h3>Shared Hosting Features</h3>
+            <div class="features-grid">
+              <div class="feature-item" *ngFor="let feature of getPlanFeatures('shared')">
+                <div class="feature-icon">
+                  <i [class]="feature.icon"></i>
+                </div>
+                <h4>{{ feature.title }}</h4>
+                <p>{{ feature.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Cloud Hosting Plans -->
+        <div class="plans-section" *ngIf="activeTab === 'cloud'">
+          <div class="plans-grid">
+            <div 
+              class="plan-card" 
+              *ngFor="let plan of filteredPlans"
+              [class.popular]="plan.popular">
+              
+              <div class="plan-header">
+                <h3>{{ plan.name }}</h3>
+                <div class="plan-price">
+                  ₦{{ plan.price }}<span>/{{ plan.period }}</span>
+                </div>
+              </div>
+              
+              <div class="plan-body">
+                <ul class="plan-features">
+                  <li *ngFor="let feature of plan.features">
+                    <i class="fas fa-check"></i>
+                    {{ feature }}
+                  </li>
+                </ul>
+                
+                <button 
+                  class="btn" 
+                  [class.btn-primary]="plan.popular"
+                  [class.btn-outline]="!plan.popular"
+                  (click)="buyPlan(plan)">
+                  <i class="fas fa-gift"></i>
+                  Buy with Afro Gift Card
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="features-section">
+            <h3>Cloud Hosting Advantages</h3>
+            <div class="features-grid">
+              <div class="feature-item" *ngFor="let feature of getPlanFeatures('cloud')">
+                <div class="feature-icon">
+                  <i [class]="feature.icon"></i>
+                </div>
+                <h4>{{ feature.title }}</h4>
+                <p>{{ feature.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
