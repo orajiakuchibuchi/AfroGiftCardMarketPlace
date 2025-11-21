@@ -9,7 +9,9 @@ export const environment = {
   authApi: "133068f8938845b449b1913bab11aa23a84d93fc24e335c8858057c998f469de",
   blogDomain: "https://afrogiftcard.hashnode.dev",
   donationDomain: "https://afro-gift-donation.vercel.app",
-  employmentDomain: "https://afro-gift-donation.vercel.app/employment"
+  employmentDomain: "https://afro-gift-donation.vercel.app/employment",
+    hostingApiUrl: 'https://192.168.83.108:3600/api',
+   domainApiUrl:'http://192.168.83.108:1965/api'
 };
 
 /*

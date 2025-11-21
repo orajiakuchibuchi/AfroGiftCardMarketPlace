@@ -4,27 +4,20 @@
       <h2>Domain Registration</h2>
       <p>Find and register your perfect domain name with Afro Gift</p>
     </div>
-    
+
     <div class="domain-search-box">
       <h3>Find Your Perfect Domain</h3>
       <p>Search for your ideal domain name with .afrogift.com.ng extension</p>
-      
+
       <div class="domain-form">
-        <input 
-          type="text" 
-          class="domain-input" 
-          [(ngModel)]="domainName"
-          placeholder="Enter your domain name"
+        <input type="text" class="domain-input" [(ngModel)]="domainName" placeholder="Enter your domain name"
           (keyup.enter)="searchDomain()">
         <span class="domain-extension">.afrogift.com.ng</span>
-        <button 
-          class="domain-btn" 
-          (click)="searchDomain()"
-          [disabled]="isLoading">
+        <button class="domain-btn" (click)="searchDomain()" [disabled]="isLoading">
           {{ isLoading ? 'Searching...' : 'Search' }}
         </button>
       </div>
-      
+
       <div class="domain-result" *ngIf="searchResult">
         <div class="result-content" *ngIf="searchResult.available">
           <p class="domain-available">
@@ -42,7 +35,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="domain-features">
       <h3>Why Register with Afro Gift?</h3>
       <div class="features-grid">
@@ -53,7 +46,7 @@
           <h4>Afro Gift Card Payment</h4>
           <p>Conveniently pay for your domain registration using Afro Gift Cards.</p>
         </div>
-        
+
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-shield-alt"></i>
@@ -61,7 +54,7 @@
           <h4>Free Privacy Protection</h4>
           <p>Keep your personal information private with free WHOIS privacy.</p>
         </div>
-        
+
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-sync"></i>
@@ -69,7 +62,7 @@
           <h4>Auto-Renewal</h4>
           <p>Never lose your domain with our automatic renewal option.</p>
         </div>
-        
+
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-tools"></i>
@@ -81,3 +74,104 @@
     </div>
   </div>
 </div>
+<!-- Email Form Modal -->
+<div *ngIf="showEmailForm" class="email-form-overlay">
+  <div class="email-form-container">
+    <div class="email-form-header">
+      <h3>Register {{ searchResult?.domain }}</h3>
+      <p>Enter your email to complete the registration</p>
+    </div>
+    
+    <div class="selected-domain-info">
+      <h4>{{ searchResult?.domain }}</h4>
+      <div class="domain-price">₦{{ searchResult?.price }}/{{ searchResult?.period }}</div>
+    </div>
+    
+    <form (ngSubmit)="submitEmail()" class="email-form">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+          class="form-control"
+          placeholder="Enter your email"
+        />
+      </div>
+      
+      <div class="form-actions">
+        <button
+          type="button"
+          (click)="cancelPurchase()"
+          class="btn btn-outline"
+          [disabled]="isPurchasing">
+          Cancel
+        </button>
+        <button
+          type="submit"
+          class="btn"
+          [disabled]="isPurchasing || !email">
+          <span *ngIf="isPurchasing" class="loading-spinner"></span>
+          {{ isPurchasing ? 'Processing...' : 'Register Domain' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Success Modal -->
+<div *ngIf="showSuccessModal" class="success-modal-overlay">
+  <div class="success-modal-container">
+    <div class="success-modal-header">
+      <div class="success-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      
+      <h2>Domain Registered Successfully!</h2>
+      <p class="success-subtitle">Your domain has been registered successfully</p>
+      <p class="domain-name">{{ registeredDomain }}</p>
+    </div>
+    
+    <div class="success-details">
+      <div class="detail-item">
+        <span class="detail-label">ID:</span>
+        <div class="detail-value">
+          <span class="value-text id-value">{{ generatedId }}</span>
+          <button 
+            (click)="copyToClipboard(generatedId)"
+            class="copy-btn"
+            title="Copy to clipboard">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="detail-item">
+        <span class="detail-label">Code:</span>
+        <div class="detail-value">
+          <span class="value-text code-value">{{ transactionCode }}</span>
+          <button 
+            (click)="copyToClipboard(transactionCode)"
+            class="copy-btn"
+            title="Copy to clipboard">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <p class="success-instructions">
+      Please save this information for your records. You will receive confirmation details via email shortly.
+    </p>
+    
+    <div class="success-actions">
+      <button
+        (click)="closeSuccessModal()"
+        class="btn">
+        Continue
+      </button>
+    </div>
+  </div>
+</div>
+
