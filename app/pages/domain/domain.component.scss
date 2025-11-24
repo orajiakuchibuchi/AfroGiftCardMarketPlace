@@ -401,16 +401,23 @@ $light-gray: #e9ecef;
   padding: 40px 30px;
   max-width: 500px;
   width: 100%;
-  max-height: 90vh;
-  overflow: hidden;
+  /* Remove max-height and use auto instead */
+  max-height: none; /* Changed from 90vh */
+  height: auto; /* Added */
+  overflow: visible; /* Changed from hidden */
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   text-align: center;
   position: relative;
   margin: auto;
+  /* Ensure the container can grow with content */
+  display: flex;
+  flex-direction: column;
 }
 
 .success-modal-header {
   margin-bottom: 25px;
+  /* Prevent header from growing */
+  flex-shrink: 0;
   
   .success-icon {
     font-size: 4rem;
@@ -446,8 +453,11 @@ $light-gray: #e9ecef;
   border-radius: 10px;
   margin-bottom: 30px;
   border-left: 4px solid $success-color;
-  max-height: 200px;
+  /* Reduce max-height and make it flexible */
+  max-height: 150px; /* Reduced from 200px */
   overflow-y: auto;
+  /* Allow this section to grow/shrink */
+  flex: 0 1 auto;
   
   /* Custom scrollbar for details */
   &::-webkit-scrollbar {
@@ -539,9 +549,15 @@ $light-gray: #e9ecef;
   line-height: 1.5;
   margin-bottom: 25px;
   text-align: center;
+  /* Prevent this from growing */
+  flex-shrink: 0;
 }
 
 .success-actions {
+  /* Ensure actions stay at the bottom */
+  flex-shrink: 0;
+  margin-top: auto; /* Push to bottom if there's extra space */
+  
   .btn {
     width: 100%;
     padding: 15px;

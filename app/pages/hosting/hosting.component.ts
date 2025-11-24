@@ -1,14 +1,14 @@
+// hosting.component.ts
 import { Component } from '@angular/core';
 import { HostingService } from '../../shared/services/hosting.service';
 
 interface HostingPlan {
-  id: string;
   name: string;
   price: number;
-  period: string;
-  popular: boolean;
-  features: string[];
+  period: string; // 'month' or 'year'
   category: 'shared' | 'cloud';
+  features: string[];
+  popular: boolean;
 }
 
 interface PlanFeature {
@@ -27,105 +27,22 @@ export class HostingComponent {
   showEmailForm = false;
   selectedPlan: HostingPlan | null = null;
   email = '';
+  address = '';
   isLoading = false;
   
+  // Modal properties
+  showModal = false;
+  modalTitle = '';
+  modalMessage = '';
+  generatedId: string | null = null;
+
   hostingPlans: HostingPlan[] = [
-    {
-      id: 'shared-starter',
-      name: 'Starter',
-      price: 5000,
-      period: 'month',
-      popular: false,
-      category: 'shared',
-      features: [
-        '100 GB SSD Storage',
-        'Unlimited Bandwidth',
-        '10 Email Accounts',
-        'Free SSL Certificate',
-        '1 Website',
-        '24/7 Support'
-      ]
-    },
-    {
-      id: 'shared-professional',
-      name: 'Professional',
-      price: 8000,
-      period: 'month',
-      popular: true,
-      category: 'shared',
-      features: [
-        '200 GB SSD Storage',
-        'Unlimited Bandwidth',
-        '25 Email Accounts',
-        'Free SSL Certificate',
-        '5 Websites',
-        '24/7 Support'
-      ]
-    },
-    {
-      id: 'shared-enterprise',
-      name: 'Enterprise',
-      price: 12000,
-      period: 'month',
-      popular: false,
-      category: 'shared',
-      features: [
-        '500 GB SSD Storage',
-        'Unlimited Bandwidth',
-        'Unlimited Email Accounts',
-        'Free SSL Certificate',
-        'Unlimited Websites',
-        'Priority Support'
-      ]
-    },
-    {
-      id: 'cloud-starter',
-      name: 'Cloud Starter',
-      price: 15000,
-      period: 'month',
-      popular: false,
-      category: 'cloud',
-      features: [
-        '2 CPU Cores',
-        '4 GB RAM',
-        '100 GB SSD Storage',
-        'Unlimited Bandwidth',
-        'Free SSL Certificate',
-        'Free Domain'
-      ]
-    },
-    {
-      id: 'cloud-business',
-      name: 'Cloud Business',
-      price: 25000,
-      period: 'month',
-      popular: true,
-      category: 'cloud',
-      features: [
-        '4 CPU Cores',
-        '8 GB RAM',
-        '200 GB SSD Storage',
-        'Unlimited Bandwidth',
-        'Free SSL Certificate',
-        'Free Domain'
-      ]
-    },
-    {
-      id: 'cloud-enterprise',
-      name: 'Cloud Enterprise',
-      price: 40000,
-      period: 'month',
-      popular: false,
-      category: 'cloud',
-      features: [
-        '8 CPU Cores',
-        '16 GB RAM',
-        '500 GB SSD Storage',
-        'Unlimited Bandwidth',
-        'Free SSL Certificate',
-        'Free Domain'
-      ]
-    }
+    { name: 'Starter', price: 5000, period: 'month', category: 'shared', features: ['100 GB SSD Storage','Unlimited Bandwidth','10 Email Accounts','Free SSL Certificate','1 Website','24/7 Support'], popular: false },
+    { name: 'Professional', price: 8000, period: 'month', category: 'shared', features: ['200 GB SSD Storage','Unlimited Bandwidth','25 Email Accounts','Free SSL Certificate','5 Websites','24/7 Support'], popular: true },
+    { name: 'Enterprise', price: 12000, period: 'month', category: 'shared', features: ['500 GB SSD Storage','Unlimited Bandwidth','Unlimited Email Accounts','Free SSL Certificate','Unlimited Websites','Priority Support'], popular: false },
+    { name: 'Cloud Starter', price: 15000, period: 'month', category: 'cloud', features: ['2 CPU Cores','4 GB RAM','100 GB SSD Storage','Unlimited Bandwidth','Free SSL Certificate','Free Domain'], popular: false },
+    { name: 'Cloud Business', price: 25000, period: 'month', category: 'cloud', features: ['4 CPU Cores','8 GB RAM','200 GB SSD Storage','Unlimited Bandwidth','Free SSL Certificate','Free Domain'], popular: true },
+    { name: 'Cloud Enterprise', price: 40000, period: 'month', category: 'cloud', features: ['8 CPU Cores','16 GB RAM','500 GB SSD Storage','Unlimited Bandwidth','Free SSL Certificate','Free Domain'], popular: false }
   ];
 
   constructor(private hostingService: HostingService) {}
@@ -144,96 +61,120 @@ export class HostingComponent {
   }
 
   submitEmail(): void {
-    if (!this.selectedPlan || !this.email) return;
+    if (!this.selectedPlan || !this.email || !this.address) return;
 
     this.isLoading = true;
 
-    const planData = {
-      name: this.selectedPlan.name,
-      price: this.selectedPlan.price,
+    const payload = {
+      planName: this.selectedPlan.name,
+      planPrice: this.selectedPlan.price,
       email: this.email,
-      period: this.selectedPlan.period,
-      category: this.selectedPlan.category,
-      features: this.selectedPlan.features
+      address: this.address,
+      duration: this.selectedPlan.period === 'month' ? 1 : 12 // backend expects number of months
     };
 
-    this.hostingService.createHostingRecord(planData).subscribe({
-      next: (response) => {
-        console.log('Hosting record created successfully:', response);
-        this.handleSuccess();
-      },
-      error: (error) => {
-        console.error('Error creating hosting record:', error);
-        this.handleError();
-      }
-    });
+   this.hostingService.createHostingRecord(payload).subscribe({
+  next: (response: any) => {
+    console.log('Backend response:', response); // <-- Add this
+    this.handleSuccess(response);
+  },
+  error: (err) => { 
+    console.error('Purchase failed:', err); 
+    this.handleError(); 
   }
+});
 
-  private handleSuccess(): void {
-    this.isLoading = false;
-    this.showEmailForm = false;
-    this.selectedPlan = null;
-    this.email = '';
-    alert('Plan purchased successfully! You will receive your hosting details via email shortly.');
   }
+copyToClipboard(text: string): void {
+  // Use the modern Clipboard API if available
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => {
+      console.log('Order ID copied to clipboard!');
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+      this.fallbackCopyToClipboard(text);
+    });
+  } else {
+    // Fallback for older browsers
+    this.fallbackCopyToClipboard(text);
+  }
+}
+
+private fallbackCopyToClipboard(text: string): void {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'fixed';
+  textarea.style.left = '-999999px';
+  textarea.style.top = '-999999px';
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  
+  try {
+    document.execCommand('copy');
+    console.log('Order ID copied to clipboard!');
+  } catch (err) {
+    console.error('Fallback copy failed: ', err);
+  } finally {
+    document.body.removeChild(textarea);
+  }
+}
+private handleSuccess(response: any): void {
+  this.isLoading = false;
+  this.showEmailForm = false;
+
+  // Extract the ID from response.result.id
+  this.generatedId = response?.result?.id || 'UNKNOWN-ID';
+
+  this.modalTitle = 'Plan Purchased Successfully!';
+  this.modalMessage = `Your hosting plan has been activated. Your Order ID is: ${this.generatedId}`;
+  this.showModal = true;
+
+  this.resetForm();
+}
+
 
   private handleError(): void {
     this.isLoading = false;
-    alert('Failed to purchase plan. Please try again or contact support.');
+    this.modalTitle = 'Purchase Failed';
+    this.modalMessage = 'Failed to purchase plan. Please try again.';
+    this.showModal = true;
   }
 
   cancelPurchase(): void {
     this.showEmailForm = false;
     this.selectedPlan = null;
     this.email = '';
+    this.address = '';
+  }
+
+  closeModal(): void {
+    this.showModal = false;
+    this.generatedId = null;
+    this.modalTitle = '';
+    this.modalMessage = '';
+  }
+
+  private resetForm(): void {
+    this.selectedPlan = null;
+    this.email = '';
+    this.address = '';
   }
 
   getPlanFeatures(category: 'shared' | 'cloud'): PlanFeature[] {
     if (category === 'shared') {
       return [
-        { 
-          icon: 'fas fa-server', 
-          title: 'Powerful Infrastructure', 
-          description: 'Our shared hosting runs on high-performance servers with SSD storage for maximum speed.' 
-        },
-        { 
-          icon: 'fas fa-shield-alt', 
-          title: 'Advanced Security', 
-          description: 'Your website is protected with advanced security measures and free SSL certificates.' 
-        },
-        { 
-          icon: 'fas fa-tachometer-alt', 
-          title: 'Easy Control Panel', 
-          description: 'Manage your hosting account with our user-friendly control panel.' 
-        },
-        { 
-          icon: 'fas fa-database', 
-          title: 'One-Click Installs', 
-          description: 'Install popular applications like WordPress, Joomla, and more with just one click.' 
-        }
+        { icon: 'fas fa-server', title: 'Powerful Infrastructure', description: 'High-performance servers with SSD storage.' },
+        { icon: 'fas fa-shield-alt', title: 'Advanced Security', description: 'Free SSL and advanced protection.' },
+        { icon: 'fas fa-tachometer-alt', title: 'Easy Control Panel', description: 'Manage your hosting easily.' },
+        { icon: 'fas fa-database', title: 'One-Click Installs', description: 'Install apps like WordPress quickly.' }
       ];
     } else {
       return [
-        { 
-          icon: 'fas fa-expand-arrows-alt', 
-          title: 'Scalable Resources', 
-          description: 'Easily scale your resources up or down based on your website\'s needs.' 
-        },
-        { 
-          icon: 'fas fa-rocket', 
-          title: 'High Performance', 
-          description: 'Experience lightning-fast load times with our optimized cloud infrastructure.' 
-        },
-        { 
-          icon: 'fas fa-lock', 
-          title: 'Enhanced Security', 
-          description: 'Advanced security features including DDoS protection and isolated environments.' 
-        },
-        { 
-          icon: 'fas fa-sync', 
-          title: '99.9% Uptime', 
-          description: 'Guaranteed high availability with redundant systems and automatic failover.' 
-        }
+        { icon: 'fas fa-expand-arrows-alt', title: 'Scalable Resources', description: 'Scale your resources anytime.' },
+        { icon: 'fas fa-rocket', title: 'High Performance', description: 'Optimized cloud servers.' },
+        { icon: 'fas fa-lock', title: 'Enhanced Security', description: 'DDoS protection and isolation.' },
+        { icon: 'fas fa-sync', title: '99.9% Uptime', description: 'Reliable uptime guaranteed.' }
       ];
     }
   }

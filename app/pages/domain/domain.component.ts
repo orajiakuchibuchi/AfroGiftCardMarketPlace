@@ -99,13 +99,13 @@ export class DomainComponent {
     this.searchResult = null;
     this.email = '';
   }
+closeSuccessModal() {
+  this.showSuccessModal = false;
+  this.generatedId = '';
+  this.transactionCode = '';
+  this.registeredDomain = '';
+}
 
-  closeSuccessModal() {
-    this.showSuccessModal = false;
-    this.generatedId = '';
-    this.transactionCode = '';
-    this.registeredDomain = '';
-  }
 
   copyToClipboard(text: string) {
     if (text && text !== 'N/A') {

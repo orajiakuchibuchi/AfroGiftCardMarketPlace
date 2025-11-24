@@ -24,8 +24,8 @@
       </div>
       
       <div class="tab-content">
-        <!-- Shared Hosting Plans -->
-        <div class="plans-section" *ngIf="activeTab === 'shared'">
+        <!-- Hosting Plans -->
+        <div class="plans-section">
           <div class="plans-grid">
             <div 
               class="plan-card" 
@@ -60,58 +60,9 @@
           </div>
           
           <div class="features-section">
-            <h3>Shared Hosting Features</h3>
+            <h3>{{ activeTab === 'shared' ? 'Shared Hosting Features' : 'Cloud Hosting Advantages' }}</h3>
             <div class="features-grid">
-              <div class="feature-item" *ngFor="let feature of getPlanFeatures('shared')">
-                <div class="feature-icon">
-                  <i [class]="feature.icon"></i>
-                </div>
-                <h4>{{ feature.title }}</h4>
-                <p>{{ feature.description }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Cloud Hosting Plans -->
-        <div class="plans-section" *ngIf="activeTab === 'cloud'">
-          <div class="plans-grid">
-            <div 
-              class="plan-card" 
-              *ngFor="let plan of filteredPlans"
-              [class.popular]="plan.popular">
-              
-              <div class="plan-header">
-                <h3>{{ plan.name }}</h3>
-                <div class="plan-price">
-                  ₦{{ plan.price }}<span>/{{ plan.period }}</span>
-                </div>
-              </div>
-              
-              <div class="plan-body">
-                <ul class="plan-features">
-                  <li *ngFor="let feature of plan.features">
-                    <i class="fas fa-check"></i>
-                    {{ feature }}
-                  </li>
-                </ul>
-                
-                <button 
-                  class="btn" 
-                  [class.btn-primary]="plan.popular"
-                  [class.btn-outline]="!plan.popular"
-                  (click)="buyPlan(plan)">
-                  <i class="fas fa-gift"></i>
-                  Buy with Afro Gift Card
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          <div class="features-section">
-            <h3>Cloud Hosting Advantages</h3>
-            <div class="features-grid">
-              <div class="feature-item" *ngFor="let feature of getPlanFeatures('cloud')">
+              <div class="feature-item" *ngFor="let feature of getPlanFeatures(activeTab)">
                 <div class="feature-icon">
                   <i [class]="feature.icon"></i>
                 </div>
@@ -126,12 +77,36 @@
   </div>
 </div>
 
-<!-- Email Form Modal -->
+<div *ngIf="showModal" class="success-modal-overlay">
+  <div class="success-modal-container">
+    <div class="success-modal-header">
+      <h2>{{modalTitle}}</h2>
+      <p class="success-subtitle">{{modalMessage}}</p>
+    </div>
+    
+    <div *ngIf="generatedId" class="success-details">
+      <div class="detail-item">
+        <span class="detail-label">Order ID</span>
+        <div class="detail-value">
+          <span class="value-text id-value">{{generatedId}}</span>
+          <button class="copy-btn" (click)="copyToClipboard(generatedId)">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="success-actions">
+      <button class="btn" (click)="closeModal()">OK</button>
+    </div>
+  </div>
+</div>
+<!-- Email + Address Form Modal -->
 <div *ngIf="showEmailForm" class="email-form-overlay">
   <div class="email-form-container">
     <div class="email-form-header">
       <h3>Buy {{ selectedPlan?.name }}</h3>
-      <p>Enter your email to complete your hosting purchase</p>
+      <p>Enter your email and address to complete your hosting purchase</p>
     </div>
     
     <div class="selected-plan-info">
@@ -139,7 +114,9 @@
       <div class="plan-price">₦{{ selectedPlan?.price }}/{{ selectedPlan?.period }}</div>
       <div class="plan-features-preview">
         <ul>
-          <li *ngFor="let feature of selectedPlan?.features?.slice(0, 3)">{{ feature }}</li>
+          <li *ngFor="let feature of selectedPlan?.features?.slice(0, 3)">
+            {{ feature }}
+          </li>
         </ul>
       </div>
     </div>
@@ -158,6 +135,19 @@
         />
         <small class="form-text">We'll send your hosting details to this email</small>
       </div>
+
+      <div class="form-group">
+        <label for="address">Billing Address</label>
+        <input
+          type="text"
+          id="address"
+          [(ngModel)]="address"
+          name="address"
+          required
+          class="form-control"
+          placeholder="Enter your billing address"
+        />
+      </div>
       
       <div class="form-actions">
         <button
@@ -170,7 +160,7 @@
         <button
           type="submit"
           class="btn btn-primary"
-          [disabled]="isLoading || !email">
+          [disabled]="isLoading || !email || !address">
           <span *ngIf="isLoading" class="loading-spinner"></span>
           {{ isLoading ? 'Processing...' : 'Confirm Purchase' }}
         </button>
@@ -178,3 +168,4 @@
     </form>
   </div>
 </div>
+<!-- Success/Error Modal - Simplified -->
