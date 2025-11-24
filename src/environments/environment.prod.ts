@@ -5,6 +5,6 @@ export const environment = {
   blogDomain: "https://afrogiftcard.hashnode.dev",
   donationDomain: "https://afro-gift-donation.vercel.app",
   employmentDomain: "https://afro-gift-donation.vercel.app/employment",
-  hostingApiUrl: 'https://your-production-hostingserver.com/api',
+  hostingApiUrl: 'https://https://192.168.186.108:3600/api/transaction/api',
   domainApiUrl:'http://192.168.186.108:1965/api'
 };

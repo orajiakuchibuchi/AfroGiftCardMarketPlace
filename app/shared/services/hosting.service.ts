@@ -20,7 +20,7 @@ export interface HostingPlan {
   providedIn: 'root'
 })
 export class HostingService {
-  private apiUrl = 'https://192.168.83.108:3600/api';
+  private apiUrl = 'https://192.168.186.108:3600/api';
 
   constructor(private http: HttpClient) { }
 

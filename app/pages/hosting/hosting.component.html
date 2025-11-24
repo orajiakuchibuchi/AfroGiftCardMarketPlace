@@ -125,43 +125,54 @@
     </div>
   </div>
 </div>
-<!-- Add this at the end of your hosting.component.html -->
-<div *ngIf="showEmailForm" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-  <div class="bg-white rounded-lg max-w-md w-full p-6">
-    <h2 class="text-xl font-bold mb-4">Buy {{selectedPlan?.name}}</h2>
+
+<!-- Email Form Modal -->
+<div *ngIf="showEmailForm" class="email-form-overlay">
+  <div class="email-form-container">
+    <div class="email-form-header">
+      <h3>Buy {{ selectedPlan?.name }}</h3>
+      <p>Enter your email to complete your hosting purchase</p>
+    </div>
     
-    <form (ngSubmit)="submitEmail()">
-      <div class="mb-4">
-        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-          Email Address
-        </label>
+    <div class="selected-plan-info">
+      <h4>{{ selectedPlan?.name }}</h4>
+      <div class="plan-price">₦{{ selectedPlan?.price }}/{{ selectedPlan?.period }}</div>
+      <div class="plan-features-preview">
+        <ul>
+          <li *ngFor="let feature of selectedPlan?.features?.slice(0, 3)">{{ feature }}</li>
+        </ul>
+      </div>
+    </div>
+    
+    <form (ngSubmit)="submitEmail()" class="email-form">
+      <div class="form-group">
+        <label for="email">Email Address</label>
         <input
           type="email"
           id="email"
           [(ngModel)]="email"
           name="email"
           required
-          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Enter your email"
+          class="form-control"
+          placeholder="Enter your email address"
         />
+        <small class="form-text">We'll send your hosting details to this email</small>
       </div>
       
-      <div class="flex justify-between items-center">
+      <div class="form-actions">
         <button
           type="button"
           (click)="cancelPurchase()"
-          class="px-4 py-2 text-gray-600 hover:text-gray-800"
-          [disabled]="isLoading"
-        >
+          class="btn btn-outline"
+          [disabled]="isLoading">
           Cancel
         </button>
         <button
           type="submit"
-          class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
-          [disabled]="isLoading || !email"
-        >
-          <span *ngIf="isLoading">Processing...</span>
-          <span *ngIf="!isLoading">Confirm Purchase</span>
+          class="btn btn-primary"
+          [disabled]="isLoading || !email">
+          <span *ngIf="isLoading" class="loading-spinner"></span>
+          {{ isLoading ? 'Processing...' : 'Confirm Purchase' }}
         </button>
       </div>
     </form>

@@ -7,13 +7,14 @@ $gray-color: #6c757d;
 $light-gray: #e9ecef;
 
 .domain-page {
-  padding: 80px 0;
+  padding: 60px 0;
   background-color: $light-color;
   
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
+    width: 100%;
   }
 }
 
@@ -33,6 +34,7 @@ $light-gray: #e9ecef;
     font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto;
+    line-height: 1.5;
   }
 }
 
@@ -44,6 +46,7 @@ $light-gray: #e9ecef;
   max-width: 800px;
   margin: 0 auto 60px;
   text-align: center;
+  width: 100%;
   
   h3 {
     font-size: 1.8rem;
@@ -54,6 +57,7 @@ $light-gray: #e9ecef;
   p {
     color: $gray-color;
     margin-bottom: 30px;
+    line-height: 1.5;
   }
 }
 
@@ -71,6 +75,7 @@ $light-gray: #e9ecef;
     border-right: none;
     font-size: 1rem;
     outline: none;
+    min-width: 0; /* Important for flexbox on mobile */
     
     &:focus {
       border-color: $primary-color;
@@ -87,6 +92,8 @@ $light-gray: #e9ecef;
     color: $secondary-color;
     display: flex;
     align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   
   .domain-btn {
@@ -96,6 +103,7 @@ $light-gray: #e9ecef;
     padding: 0 30px;
     font-weight: 600;
     cursor: pointer;
+    flex-shrink: 0;
     
     &:hover:not(:disabled) {
       background: linear-gradient(135deg, $primary-dark, $primary-color);
@@ -120,6 +128,7 @@ $light-gray: #e9ecef;
     font-weight: 600;
     font-size: 1.1rem;
     margin-bottom: 15px;
+    text-align: left;
     
     i {
       margin-right: 8px;
@@ -128,6 +137,7 @@ $light-gray: #e9ecef;
   
   .price-info {
     margin: 15px 0;
+    text-align: left;
     
     .price {
       font-size: 1.5rem;
@@ -139,12 +149,15 @@ $light-gray: #e9ecef;
   p {
     color: $gray-color;
     margin-bottom: 20px;
+    text-align: left;
+    line-height: 1.5;
   }
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 12px 30px;
   background: linear-gradient(135deg, $primary-color, $primary-dark);
@@ -154,6 +167,8 @@ $light-gray: #e9ecef;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 1rem;
   
   &:hover {
     background: linear-gradient(135deg, $primary-dark, $primary-color);
@@ -238,7 +253,7 @@ $light-gray: #e9ecef;
   justify-content: center;
   z-index: 1000;
   padding: 20px;
-  overflow: hidden; /* Prevent any scrolling */
+  overflow: auto; /* Changed to auto for mobile scrolling */
 }
 
 .email-form-container {
@@ -247,10 +262,11 @@ $light-gray: #e9ecef;
   padding: 30px;
   max-width: 500px;
   width: 100%;
-  max-height: 80vh; /* Limit height to prevent scrolling */
-  overflow: hidden; /* Prevent container scrolling */
+  max-height: 90vh;
+  overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   position: relative;
+  margin: auto;
 }
 
 .email-form-header {
@@ -266,6 +282,7 @@ $light-gray: #e9ecef;
   p {
     color: $gray-color;
     font-size: 1rem;
+    line-height: 1.5;
   }
 }
 
@@ -281,7 +298,7 @@ $light-gray: #e9ecef;
     color: $primary-color;
     font-size: 1.2rem;
     margin-bottom: 10px;
-    word-break: break-word;
+    word-break: break-all;
   }
   
   .domain-price {
@@ -293,9 +310,9 @@ $light-gray: #e9ecef;
 }
 
 .email-form {
-  max-height: calc(80vh - 200px); /* Adjust based on your content */
-  overflow-y: auto; /* Only allow scrolling if absolutely necessary */
-  padding-right: 5px; /* Space for scrollbar */
+  max-height: calc(80vh - 200px);
+  overflow-y: auto;
+  padding-right: 5px;
   
   /* Custom scrollbar */
   &::-webkit-scrollbar {
@@ -325,6 +342,7 @@ $light-gray: #e9ecef;
     margin-bottom: 8px;
     color: $primary-color;
     font-weight: 600;
+    text-align: left;
   }
   
   .form-control {
@@ -333,6 +351,7 @@ $light-gray: #e9ecef;
     border: 2px solid $light-gray;
     border-radius: 8px;
     font-size: 1rem;
+    box-sizing: border-box;
     
     &:focus {
       border-color: $primary-color;
@@ -344,6 +363,7 @@ $light-gray: #e9ecef;
     color: $gray-color;
     font-size: 0.8rem;
     margin-top: 5px;
+    text-align: left;
   }
 }
 
@@ -372,7 +392,7 @@ $light-gray: #e9ecef;
   justify-content: center;
   z-index: 1000;
   padding: 20px;
-  overflow: hidden; /* Prevent any scrolling */
+  overflow: auto;
 }
 
 .success-modal-container {
@@ -381,11 +401,12 @@ $light-gray: #e9ecef;
   padding: 40px 30px;
   max-width: 500px;
   width: 100%;
-  max-height: 80vh; /* Limit height to prevent scrolling */
-  overflow: hidden; /* Prevent container scrolling */
+  max-height: 90vh;
+  overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   text-align: center;
   position: relative;
+  margin: auto;
 }
 
 .success-modal-header {
@@ -409,11 +430,13 @@ $light-gray: #e9ecef;
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 5px;
+    word-break: break-all;
   }
   
   .success-subtitle {
     color: $gray-color;
     font-size: 1rem;
+    line-height: 1.5;
   }
 }
 
@@ -423,8 +446,8 @@ $light-gray: #e9ecef;
   border-radius: 10px;
   margin-bottom: 30px;
   border-left: 4px solid $success-color;
-  max-height: 200px; /* Fixed height for details */
-  overflow-y: auto; /* Allow scrolling only for details if needed */
+  max-height: 200px;
+  overflow-y: auto;
   
   /* Custom scrollbar for details */
   &::-webkit-scrollbar {
@@ -460,17 +483,23 @@ $light-gray: #e9ecef;
       font-weight: 600;
       color: $secondary-color;
       font-size: 1rem;
+      flex-shrink: 0;
     }
     
     .detail-value {
       display: flex;
       align-items: center;
       gap: 10px;
+      min-width: 0;
+      flex: 1;
+      justify-content: flex-end;
       
       .value-text {
         font-family: 'Courier New', monospace;
         font-size: 0.9rem;
         font-weight: 600;
+        word-break: break-all;
+        text-align: right;
         
         &.id-value {
           color: $primary-color;
@@ -489,6 +518,7 @@ $light-gray: #e9ecef;
         padding: 5px;
         border-radius: 4px;
         transition: all 0.3s ease;
+        flex-shrink: 0;
         
         &:hover {
           color: $primary-color;
@@ -508,6 +538,7 @@ $light-gray: #e9ecef;
   font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 25px;
+  text-align: center;
 }
 
 .success-actions {
@@ -535,46 +566,136 @@ $light-gray: #e9ecef;
   100% { transform: rotate(360deg); }
 }
 
-/* Prevent body scrolling when modal is open */
-body.modal-open {
-  overflow: hidden;
-}
-
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .domain-page {
     padding: 40px 0;
+    
+    .container {
+      padding: 0 15px;
+    }
+  }
+  
+  .section-title {
+    margin-bottom: 30px;
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
   }
   
   .domain-search-box {
-    padding: 25px;
+    padding: 25px 20px;
+    margin: 0 auto 40px;
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+    
+    p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
   }
   
   .domain-form {
     flex-direction: column;
+    margin: 20px 0;
     
-    .domain-input, .domain-extension, .domain-btn {
+    .domain-input, 
+    .domain-extension, 
+    .domain-btn {
       width: 100%;
       border: 2px solid $light-gray;
-      margin-bottom: 10px;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    .domain-input {
+      border-radius: 8px 8px 0 0;
+      border-bottom: none;
+    }
+    
+    .domain-extension {
+      border-radius: 0;
+      border-bottom: none;
+      justify-content: center;
+      padding: 12px 20px;
+    }
+    
+    .domain-btn {
+      border-radius: 0 0 8px 8px;
+      padding: 15px 20px;
+    }
+  }
+  
+  .domain-result {
+    padding: 20px;
+    margin-top: 20px;
+    
+    .domain-available {
+      font-size: 1rem;
+      text-align: center;
+    }
+    
+    .price-info {
+      text-align: center;
+      
+      .price {
+        font-size: 1.3rem;
+      }
+    }
+    
+    p {
+      text-align: center;
+    }
+    
+    .btn {
+      width: 100%;
+      justify-content: center;
     }
   }
   
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 25px 20px;
+    
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Mobile Modal Improvements */
+  .email-form-overlay,
+  .success-modal-overlay {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
   }
   
   .email-form-container,
   .success-modal-container {
     padding: 25px 20px;
-    margin: 10px;
-    max-height: 85vh; /* Slightly more height on mobile */
+    margin: 0;
+    max-height: 95vh;
+    border-radius: 12px;
   }
   
-  .form-actions {
-    flex-direction: column;
-  }
-  
+  .email-form-header,
   .success-modal-header {
+    h3 {
+      font-size: 1.3rem;
+    }
+    
     h2 {
       font-size: 1.5rem;
     }
@@ -584,19 +705,86 @@ body.modal-open {
     }
   }
   
+  .selected-domain-info {
+    padding: 15px;
+    
+    h4 {
+      font-size: 1.1rem;
+    }
+    
+    .domain-price {
+      font-size: 1.3rem;
+    }
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+    
+    .btn {
+      width: 100%;
+    }
+  }
+  
   .success-details {
     padding: 20px 15px;
-    max-height: 150px; /* Smaller height on mobile */
+    max-height: 150px;
     
     .detail-item {
       flex-direction: column;
       align-items: flex-start;
       gap: 8px;
+      text-align: left;
       
       .detail-value {
         width: 100%;
         justify-content: space-between;
+        
+        .value-text {
+          text-align: left;
+          font-size: 0.85rem;
+        }
       }
+    }
+  }
+  
+  .success-instructions {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .domain-page {
+    padding: 30px 0;
+  }
+  
+  .section-title {
+    h2 {
+      font-size: 1.6rem;
+    }
+  }
+  
+  .domain-search-box {
+    padding: 20px 15px;
+    
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+  
+  .email-form-container,
+  .success-modal-container {
+    padding: 20px 15px;
+  }
+  
+  .success-modal-header {
+    .success-icon {
+      font-size: 3rem;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
     }
   }
 }
