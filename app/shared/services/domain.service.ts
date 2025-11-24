@@ -22,7 +22,7 @@ export interface DomainResponse {
   providedIn: 'root',
 })
 export class DomainService {
-  private apiUrl = 'https://192.168.83.108:1965/api/transaction'; // your API endpoint
+  private apiUrl = 'https://192.168.186.108:1965/api/transaction'; // your API endpoint
 
   constructor(private http: HttpClient) {}
 
