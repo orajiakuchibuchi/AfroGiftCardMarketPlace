@@ -6,5 +6,5 @@ export const environment = {
   donationDomain: "https://afro-gift-donation.vercel.app",
   employmentDomain: "https://afro-gift-donation.vercel.app/employment",
   hostingApiUrl: 'https://your-production-hostingserver.com/api',
-  domainApiUrl:'http://192.168.83.108:1965/api'
+  domainApiUrl:'http://192.168.186.108:1965/api'
 };

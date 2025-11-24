@@ -10,8 +10,8 @@ export const environment = {
   blogDomain: "https://afrogiftcard.hashnode.dev",
   donationDomain: "https://afro-gift-donation.vercel.app",
   employmentDomain: "https://afro-gift-donation.vercel.app/employment",
-    hostingApiUrl: 'https://192.168.83.108:3600/api',
-   domainApiUrl:'http://192.168.83.108:1965/api'
+    hostingApiUrl: 'https://192.168.186.108:3600/api',
+   domainApiUrl:'http://192.168.186.108:1965/api'
 };
 
 /*
