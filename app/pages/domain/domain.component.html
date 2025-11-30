@@ -5,38 +5,360 @@
       <p>Find and register your perfect domain name with Afro Gift</p>
     </div>
 
-    <div class="domain-search-box">
-      <h3>Find Your Perfect Domain</h3>
-      <p>Search for your ideal domain name with .afrogift.com.ng extension</p>
-
-      <div class="domain-form">
-        <input type="text" class="domain-input" [(ngModel)]="domainName" placeholder="Enter your domain name"
-          (keyup.enter)="searchDomain()">
-        <span class="domain-extension">.afrogift.com.ng</span>
-        <button class="domain-btn" (click)="searchDomain()" [disabled]="isLoading">
-          {{ isLoading ? 'Searching...' : 'Search' }}
-        </button>
-      </div>
-
-      <div class="domain-result" *ngIf="searchResult">
-        <div class="result-content" *ngIf="searchResult.available">
-          <p class="domain-available">
-            <i class="fas fa-check-circle"></i>
-            Congratulations! <strong>{{ searchResult.domain }}</strong> is available!
-          </p>
-          <div class="price-info">
-            <span class="price">₦{{ searchResult.price }}/{{ searchResult.period }}</span>
-          </div>
-          <p>You can register this domain with Afro Gift Card</p>
-          <button class="btn btn-primary" (click)="buyDomain()">
-            <i class="fas fa-gift"></i>
-            Buy with Afro Gift Card
-          </button>
+    <!-- DOMAIN EXPLANATION SECTION -->
+    <div class="domain-info-section">
+      <div class="domain-info-card">
+        <h3>What is a Domain?</h3>
+        <p>A domain is a public name mapped to an IP address, used to identify you publicly online (e.g., instead of a raw IP like 123.55.**.*9). Anyone can access it via any web browser.</p>
+        
+        <div class="benefit-box">
+          <h4>Benefit of Owning a Domain with AfroGift</h4>
+          <p>Every user who owns an AfroGift domain (private or public) gets full access to trade their AfroGift card.</p>
         </div>
       </div>
     </div>
 
-    <div class="domain-features">
+    <!-- DOMAIN TYPES SECTION -->
+    <div class="domain-types-section">
+      <h3>We offer two types of domains:</h3>
+      
+      <div class="domain-types-grid">
+        <!-- Private Domain Card -->
+     <!-- Change only the Private Domain card section -->
+<div class="domain-types-grid">
+  <!-- DomEx Card (formerly Private Domain) -->
+  <div class="domain-type-card">
+    <div class="domain-type-header">
+      <div class="domain-icon">
+        <i class="fas fa-user-shield"></i>
+      </div>
+      <h4>DomEx (Domain Exchange)</h4>
+      <span class="domain-badge">Personal Trading Domain</span>
+    </div>
+    
+    <div class="domain-format">
+      <code>username.afrogift.com.ng</code>
+      <small>e.g., joel.afrogift.com.ng</small>
+    </div>
+    
+    <div class="domain-description">
+      <p><strong>DomEx</strong> is your own private and personal trading domain on the Afro Gift platform. When you register, you get a unique web address that ends with .afrogift.com.ng. This is not just a username, it is your own personal subdomain that belongs only to you.</p>
+      <p>It is created specially for Nigerians who want to buy and sell Afro Gift Cards. Once you buy and activate your DomEx, you are ready to start trading using your domain. This DomEx becomes your secure trading space where buyers send Naira straight to your bank account and you receive gift cards instantly.</p>
+      <ul class="domain-features">
+        <li><i class="fas fa-check"></i> Your personal secure trading space for Afro Gift Cards</li>
+        <li><i class="fas fa-check"></i> Direct bank transfers - buyers send Naira straight to your account</li>
+        <li><i class="fas fa-check"></i> Instant gift card delivery when you buy</li>
+        <li><i class="fas fa-check"></i> Professional online identity for trading</li>
+        <li><i class="fas fa-check"></i> Verified identity and bank account for trust</li>
+        <li><i class="fas fa-check"></i> Everything happens directly under your own domain</li>
+      </ul>
+    </div>
+    
+    <!-- DomEx Pricing -->
+    <div class="pricing-section">
+      <h5>DomEx Pricing</h5>
+      <div class="pricing-table">
+        <div class="pricing-row">
+          <span class="duration">1 Year</span>
+          <span class="price">₦100,000</span>
+          <span class="per-year">₦100,000/year</span>
+          <button class="btn btn-outline" (click)="selectDomainPlan(privateDomainPlans[0], 'private')">
+            Select
+          </button>
+        </div>
+        <div class="pricing-row">
+          <span class="duration">2 Years</span>
+          <span class="price">₦180,000</span>
+          <span class="per-year">₦90,000/year</span>
+          <button class="btn btn-outline" (click)="selectDomainPlan(privateDomainPlans[1], 'private')">
+            Select
+          </button>
+        </div>
+        <div class="pricing-row">
+          <span class="duration">3 Years</span>
+          <span class="price">₦225,000</span>
+          <span class="per-year">₦75,000/year</span>
+          <button class="btn btn-outline" (click)="selectDomainPlan(privateDomainPlans[2], 'private')">
+            Select
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-- Public Domain Card -->
+        <div class="domain-type-card popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="domain-type-header">
+            <div class="domain-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h4>Public Domain</h4>
+            <span class="domain-badge">Standalone</span>
+          </div>
+          
+          <div class="domain-format">
+            <code>yourdomain.com</code>
+            <small>e.g., joel.com, joel.com.ng</small>
+          </div>
+          
+          <div class="domain-description">
+            <p>A full standalone domain registered to a public IP address.</p>
+            <ul class="domain-features">
+              <li><i class="fas fa-check"></i> Purchased on behalf of the user via AfroGift card</li>
+              <li><i class="fas fa-check"></i> User owns it fully and can transfer it out anytime using the email attached to the card</li>
+              <li><i class="fas fa-check"></i> Every public domain also includes a private subdomain (e.g., joel.afrogift.com.ng) automatically</li>
+              <li><i class="fas fa-check"></i> When checking availability: the full domain (e.g., joel.com) is searched</li>
+              <li><i class="fas fa-check"></i> Full DNS control and management</li>
+              <li><i class="fas fa-check"></i> Professional email forwarding included</li>
+            </ul>
+          </div>
+          
+          <!-- Public Domain Pricing -->
+          <div class="pricing-section">
+            <h5>Public Domain Pricing</h5>
+            <div class="pricing-note">
+              <small>Since every public domain includes a private domain + registration on a public IP: Add ₦62,500 to the corresponding private domain plan price.</small>
+            </div>
+            <div class="pricing-table">
+              <div class="pricing-row">
+                <span class="duration">1 Year</span>
+                <span class="price">₦162,500</span>
+                <span class="per-year">₦162,500/year</span>
+                <button class="btn btn-primary" (click)="selectDomainPlan(publicDomainPlans[0], 'public')">
+                  Select
+                </button>
+              </div>
+              <div class="pricing-row">
+                <span class="duration">2 Years</span>
+                <span class="price">₦242,500</span>
+                <span class="per-year">₦121,250/year</span>
+                <button class="btn btn-primary" (click)="selectDomainPlan(publicDomainPlans[1], 'public')">
+                  Select
+                </button>
+              </div>
+              <div class="pricing-row">
+                <span class="duration">3 Years</span>
+                <span class="price">₦287,500</span>
+                <span class="per-year">₦95,833/year</span>
+                <button class="btn btn-primary" (click)="selectDomainPlan(publicDomainPlans[2], 'public')">
+                  Select
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAMESERVERS SECTION -->
+    <div class="nameservers-section">
+      <h3>Nameservers & Domain Activation</h3>
+      
+      <div class="nameserver-info">
+        <div class="info-card">
+          <h4>What Does "Private" Mean for Your Domain?</h4>
+          <p>In the context of AfroGift domains, "private" means masking your local IP address with our nameservers. Every user connected to the internet has a local IP address (visible by running <code>npm run ip</code> in any AfroGift App). We provide a public identity without exposing your personal or private IP address.</p>
+        </div>
+
+        <div class="activation-process">
+          <h4>Domain Activation Process</h4>
+          <div class="process-steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h5>Purchase Your Domain</h5>
+                <p>Select and purchase your preferred domain plan</p>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h5>Get Your IP Address</h5>
+                <p>Click the <strong>"Get IP"</strong> button on your Gift Card page to view your current IP address</p>
+                <div class="warning-note">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <strong>Important:</strong> Only click this button when connected to your trusted local network (home network)
+                </div>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h5>Activate Your Domain</h5>
+                <p>Click the <strong>"Activate"</strong> button and provide your home address</p>
+                <div class="location-note">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <strong>Note:</strong> AfroGift Private Domains are currently only available to users with IP addresses within Nigeria. The home address provided must be a physical address in Nigeria.
+                </div>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h5>Go Live</h5>
+                <p>Once activated, your private domain is publicly accessible and points to your trading platform</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h5>Free Auth & SMTP Server</h5>
+            <p>Get free authentication and SMTP server access to set up user authorization for your trading platform</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-store"></i>
+            </div>
+            <h5>Personal Trading Platform</h5>
+            <p>Your private domain automatically lands visitors to your own AfroGift Card trading platform where you're the admin</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h5>Uptime Monitoring</h5>
+            <p>AfroGift pings all domain IPs every 10 minutes to ensure 99.9% uptime and reliability</p>
+          </div>
+        </div>
+
+        <div class="important-notice">
+          <h4>Important Connectivity Notice</h4>
+          <div class="notice-content">
+            <i class="fas fa-network-wired"></i>
+            <div>
+              <p><strong>VPN & Router Connectivity:</strong> If you activate your domain connected to a VPN or router and the VPN server goes down, you'll need to update your nameserver record before receiving trades until your recorded IP responds online.</p>
+              <p class="warning-text">This can affect active traders who suddenly stop receiving trades. The solution is often simply updating your Gift Card domain Nameserver.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <!-- Domain Search Section -->
+<div class="domain-search-box">
+  <h3>Find Your Perfect Domain</h3>
+  <p>Search for your ideal domain name with .afrogift.com.ng extension</p>
+
+  <div class="domain-form">
+    <input type="text" class="domain-input" [(ngModel)]="domainName" placeholder="Enter your domain name"
+      (keyup.enter)="searchDomain()">
+    <span class="domain-extension">.afrogift.com.ng</span>
+    <button class="domain-btn" (click)="searchDomain()" [disabled]="isLoading">
+      {{ isLoading ? 'Searching...' : 'Search' }}
+    </button>
+  </div>
+
+  <!-- Your existing search result -->
+  <div class="domain-result" *ngIf="searchResult">
+    <div class="result-content" *ngIf="searchResult.available">
+      <p class="domain-available">
+        <i class="fas fa-check-circle"></i>
+        Congratulations! <strong>{{ searchResult.domain }}</strong> is available!
+      </p>
+      <div class="price-info">
+        <span class="price">₦{{ searchResult.price }}/{{ searchResult.period }}</span>
+      </div>
+      <p>You can register this domain with Afro Gift Card</p>
+      <button class="btn btn-primary" (click)="buyDomain()">
+        <i class="fas fa-gift"></i>
+        Buy with Afro Gift Card
+      </button>
+    </div>
+  </div>
+
+<!-- Enhanced DomainsDB Results Section -->
+<div class="domainsdb-results" *ngIf="domainsDbResults">
+  <div class="results-header">
+    <h4>Public Domain Search Results</h4>
+    <div class="results-stats">
+      Found {{ domainsDbResults.total }} domains • Search time: {{ domainsDbResults.time }}
+      <span *ngIf="domainsDbResults.page">• Page {{ domainsDbResults.page }} of {{ domainsDbResults.pages }}</span>
+    </div>
+  </div>
+  
+  <div *ngIf="domainsDbResults.domains && domainsDbResults.domains.length > 0; else noResults">
+    <div class="search-summary">
+      <p>Showing {{ domainsDbResults.domains.length }} of {{ domainsDbResults.total }} results for "{{ domainName }}"</p>
+    </div>
+    
+    <div class="domains-list">
+      <div *ngFor="let domain of domainsDbResults.domains" class="domain-card" 
+           [class.domain-available]="domain.isDead === false || domain.isDead === 'False'"
+           [class.domain-taken]="domain.isDead === true || domain.isDead === 'True'">
+        
+        <div class="domain-card-header">
+          <h5>{{ domain.domain }}</h5>
+          <span class="domain-status" 
+                [class.available]="domain.isDead === false || domain.isDead === 'False'"
+                [class.taken]="domain.isDead === true || domain.isDead === 'True'">
+            {{ (domain.isDead === false || domain.isDead === 'False') ? 'Available' : 'Taken' }}
+          </span>
+        </div>
+        
+        <div class="domain-card-details">
+          <div class="detail-row" *ngIf="domain.ip">
+            <span class="detail-label">IP Address:</span>
+            <span class="detail-value">{{ domain.ip }}</span>
+          </div>
+          <div class="detail-row" *ngIf="domain.country">
+            <span class="detail-label">Country:</span>
+            <span class="detail-value">{{ domain.country }}</span>
+          </div>
+          <div class="detail-row" *ngIf="domain.create_date">
+            <span class="detail-label">Created:</span>
+            <span class="detail-value">{{ domain.create_date | date:'mediumDate' }}</span>
+          </div>
+          <div class="detail-row" *ngIf="domain.update_date">
+            <span class="detail-label">Updated:</span>
+            <span class="detail-value">{{ domain.update_date | date:'mediumDate' }}</span>
+          </div>
+          
+          <!-- DNS Records -->
+          <div class="dns-records" *ngIf="domain.A && domain.A.length > 0">
+            <div class="detail-label">A Records:</div>
+            <div class="dns-values">
+              <span *ngFor="let ip of domain.A" class="dns-value">{{ ip }}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="domain-actions" *ngIf="domain.isDead === false || domain.isDead === 'False'">
+          <button class="btn btn-sm btn-outline" (click)="selectPublicDomain(domain)">
+            Register Public Domain
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noResults>
+    <div class="no-results">
+      <i class="fas fa-search"></i>
+      <p>No public domains found for "{{ domainName }}"</p>
+      <p class="suggestion">Try searching for a different term or register a private domain with AfroGift</p>
+    </div>
+  </ng-template>
+</div>
+  <!-- Error message display -->
+  <div *ngIf="searchError" class="error-message">
+    <i class="fas fa-exclamation-triangle"></i>
+    {{ searchError }}
+  </div>
+</div>
+
+    <!-- Features Section -->
+    <div class="domain-features-section">
       <h3>Why Register with Afro Gift?</h3>
       <div class="features-grid">
         <div class="feature-card">
@@ -74,17 +396,18 @@
     </div>
   </div>
 </div>
+
 <!-- Email Form Modal -->
 <div *ngIf="showEmailForm" class="email-form-overlay">
   <div class="email-form-container">
     <div class="email-form-header">
-      <h3>Register {{ searchResult?.domain }}</h3>
+      <h3>Register {{ selectedDomainPlan?.name || searchResult?.domain }}</h3>
       <p>Enter your email to complete the registration</p>
     </div>
     
     <div class="selected-domain-info">
-      <h4>{{ searchResult?.domain }}</h4>
-      <div class="domain-price">₦{{ searchResult?.price }}/{{ searchResult?.period }}</div>
+      <h4>{{ selectedDomainPlan?.name || searchResult?.domain }}</h4>
+      <div class="domain-price">₦{{ selectedDomainPlan?.price || searchResult?.price }}/{{ selectedDomainPlan?.period || searchResult?.period }}</div>
     </div>
     
     <form (ngSubmit)="submitEmail()" class="email-form">
@@ -120,6 +443,7 @@
     </form>
   </div>
 </div>
+
 <!-- Success Modal -->
 <div *ngIf="showSuccessModal" class="success-modal-overlay">
   <div class="success-modal-container">
@@ -166,7 +490,6 @@
     </p>
     
     <div class="success-actions">
-      <!-- OK button to close the modal -->
       <button
         (click)="closeSuccessModal()"
         class="btn btn-primary">
@@ -175,4 +498,3 @@
     </div>
   </div>
 </div>
-
