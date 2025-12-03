@@ -27,6 +27,8 @@ import { PrivatePolicyComponent } from './pages/private-policy/private-policy.co
 import { PrivateTermComponent } from './pages/private-term/private-term.component';
 import { SubscribeComponent } from './shared/subscribe/subscribe.component';
 import { LogoComponent } from './shared/reuseables/logo/logo.component';
+import { HostingComponent } from './pages/hosting/hosting.component';
+import { DomainComponent } from './pages/domain/domain.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,9 @@ import { LogoComponent } from './shared/reuseables/logo/logo.component';
     PrivatePolicyComponent,
     PrivateTermComponent,
     SubscribeComponent,
-    LogoComponent
+    LogoComponent,
+    HostingComponent,
+    DomainComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,171 @@
+<div class="hosting-page">
+  <div class="container">
+    <div class="section-title">
+      <h2>Afro Gift Hosting Solutions</h2>
+      <p>Choose the perfect hosting plan for your website</p>
+    </div>
+    
+    <div class="tabs-container">
+      <div class="tabs-header">
+        <button 
+          class="tab-btn" 
+          [class.active]="activeTab === 'shared'"
+          (click)="switchTab('shared')">
+          <i class="fas fa-users"></i>
+          Shared Hosting
+        </button>
+        <button 
+          class="tab-btn" 
+          [class.active]="activeTab === 'cloud'"
+          (click)="switchTab('cloud')">
+          <i class="fas fa-cloud"></i>
+          Cloud Hosting
+        </button>
+      </div>
+      
+      <div class="tab-content">
+        <!-- Hosting Plans -->
+        <div class="plans-section">
+          <div class="plans-grid">
+            <div 
+              class="plan-card" 
+              *ngFor="let plan of filteredPlans"
+              [class.popular]="plan.popular">
+              
+              <div class="plan-header">
+                <h3>{{ plan.name }}</h3>
+                <div class="plan-price">
+                  ₦{{ plan.price }}<span>/{{ plan.period }}</span>
+                </div>
+              </div>
+              
+              <div class="plan-body">
+                <ul class="plan-features">
+                  <li *ngFor="let feature of plan.features">
+                    <i class="fas fa-check"></i>
+                    {{ feature }}
+                  </li>
+                </ul>
+                
+                <button 
+                  class="btn" 
+                  [class.btn-primary]="plan.popular"
+                  [class.btn-outline]="!plan.popular"
+                  (click)="buyPlan(plan)">
+                  <i class="fas fa-gift"></i>
+                  Buy with Afro Gift Card
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="features-section">
+            <h3>{{ activeTab === 'shared' ? 'Shared Hosting Features' : 'Cloud Hosting Advantages' }}</h3>
+            <div class="features-grid">
+              <div class="feature-item" *ngFor="let feature of getPlanFeatures(activeTab)">
+                <div class="feature-icon">
+                  <i [class]="feature.icon"></i>
+                </div>
+                <h4>{{ feature.title }}</h4>
+                <p>{{ feature.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="success-modal-overlay">
+  <div class="success-modal-container">
+    <div class="success-modal-header">
+      <h2>{{modalTitle}}</h2>
+      <p class="success-subtitle">{{modalMessage}}</p>
+    </div>
+    
+    <div *ngIf="generatedId" class="success-details">
+      <div class="detail-item">
+        <span class="detail-label">Order ID</span>
+        <div class="detail-value">
+          <span class="value-text id-value">{{generatedId}}</span>
+          <button class="copy-btn" (click)="copyToClipboard(generatedId)">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="success-actions">
+      <button class="btn" (click)="closeModal()">OK</button>
+    </div>
+  </div>
+</div>
+<!-- Email + Address Form Modal -->
+<div *ngIf="showEmailForm" class="email-form-overlay">
+  <div class="email-form-container">
+    <div class="email-form-header">
+      <h3>Buy {{ selectedPlan?.name }}</h3>
+      <p>Enter your email and address to complete your hosting purchase</p>
+    </div>
+    
+    <div class="selected-plan-info">
+      <h4>{{ selectedPlan?.name }}</h4>
+      <div class="plan-price">₦{{ selectedPlan?.price }}/{{ selectedPlan?.period }}</div>
+      <div class="plan-features-preview">
+        <ul>
+          <li *ngFor="let feature of selectedPlan?.features?.slice(0, 3)">
+            {{ feature }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <form (ngSubmit)="submitEmail()" class="email-form">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+          class="form-control"
+          placeholder="Enter your email address"
+        />
+        <small class="form-text">We'll send your hosting details to this email</small>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Billing Address</label>
+        <input
+          type="text"
+          id="address"
+          [(ngModel)]="address"
+          name="address"
+          required
+          class="form-control"
+          placeholder="Enter your billing address"
+        />
+      </div>
+      
+      <div class="form-actions">
+        <button
+          type="button"
+          (click)="cancelPurchase()"
+          class="btn btn-outline"
+          [disabled]="isLoading">
+          Cancel
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="isLoading || !email || !address">
+          <span *ngIf="isLoading" class="loading-spinner"></span>
+          {{ isLoading ? 'Processing...' : 'Confirm Purchase' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Success/Error Modal - Simplified -->

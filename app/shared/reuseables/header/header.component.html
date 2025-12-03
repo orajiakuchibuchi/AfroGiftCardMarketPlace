@@ -2,47 +2,46 @@
 <div class="header-top">
   <div class="container">
     <div class="header-top-wrapper d-flex justify-content-between align-items-center py-2">
-      
+
       <!-- Logo -->
       <div class="header-logo">
         <a routerLink="/home" class="logo black-text" style="margin-left: 10px;">
-        <!-- Old -->
-<!-- <img src="assets/img/mainLogo.jpg" alt="Logo"> -->
+          <!-- Old -->
+          <!-- <img src="assets/img/mainLogo.jpg" alt="Logo"> -->
 
-<!-- New -->
-<app-logo [productName]="''"></app-logo>
+          <!-- New -->
+          <app-logo [productName]="''"></app-logo>
 
         </a>
       </div>
 
 
-     <!-- ✅ Hamburger (mobile only, Safari-safe) -->
-<button class="hamburger-icon d-md-none" type="button" aria-label="Toggle menu">
-  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 16 16">
-    <path
-      d="M2 12.5a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2zm0-4a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2zm0-4a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2z"
-      fill="#ffffff"
-    />
-  </svg>
-</button>
+      <!-- ✅ Hamburger (mobile only, Safari-safe) -->
+      <button class="hamburger-icon d-md-none" type="button" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 16 16">
+          <path
+            d="M2 12.5a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2zm0-4a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2zm0-4a.5.5 0 0 1 0-1h12a.5.5 0 0 1 0 1H2z"
+            fill="#ffffff" />
+        </svg>
+      </button>
 
 
 
       <!-- Account Menu -->
       <div class="account-menu">
-  <ul class="d-flex gap-3 mb-0">
-    <li>
-      <a routerLink="/buy-giftcard" class="black-text">
-        <i class="fas fa-credit-card"></i> Purchase Card
-      </a>
-    </li>
-    <li>
-      <a routerLink="/check-giftcard" class="black-text">
-        <i class="fas fa-list-alt"></i> Check Card
-      </a>
-    </li>
-  </ul>
-</div>
+        <ul class="d-flex gap-3 mb-0">
+          <li>
+            <a routerLink="/buy-giftcard" class="black-text">
+              <i class="fas fa-credit-card"></i> Purchase Card
+            </a>
+          </li>
+          <li>
+            <a routerLink="/check-giftcard" class="black-text">
+              <i class="fas fa-list-alt"></i> Check Card
+            </a>
+          </li>
+        </ul>
+      </div>
 
 
     </div>
@@ -68,13 +67,13 @@
             <li class="active"><a routerLink="/home" class="text-white">HOME</a></li>
 
             <li><a routerLink="/about" class="text-white">ABOUT</a></li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link text-white" routerLink="/products">Product</a>
             </li>
 
             <li>
               <a routerLink="/partner" class="text-white">PARTNERS</a>
-            </li>
+            </li> -->
             <li>
               <a routerLink="#" class="text-white">CARDS</a>
               <ul class="sub-menu">
@@ -82,9 +81,13 @@
                 <li><a routerLink="/buy-giftcard" class="text-white">BUY CARD</a></li>
               </ul>
             </li>
-            <li><a href="" (click)="openDonation()" class="text-white" target="_blank">DONATION</a></li>
-            <li><a href="" (click)="openEmployment()" class="text-white" target="_blank">EMPLOYMENT</a></li>
-            <li><a href="" (click)="openBlog()" class="text-white" target="_blank">BLOG</a></li>
+            <li><a href="" (click)="openDonation()" class="text-white">DONATION</a></li>
+            <!-- <li><a href="" (click)="openBlog()" class="text-white" target="_blank">BLOG</a></li> -->
+
+            <li><a routerLink="/domain" class="text-white">DOMAIN</a></li>
+
+            <li><a routerLink="/hosting" class="text-white">HOSTING</a></li>
+
             <li><a routerLink="/contact" class="text-white">CONTACT</a></li>
           </ul>
         </nav>
@@ -97,7 +100,7 @@
 
 <!-- Sidebar -->
 <div id="sidebar" class="sidebar bg-dark" #sidebarElement>
-  <button class="btn-close btn-close-white m-3 sidebar-close" aria-label="Close" ></button>
+  <button class="btn-close btn-close-white m-3 sidebar-close" aria-label="Close"></button>
   <ul class="nav flex-column p-4">
 
     <!-- Home -->
@@ -110,14 +113,14 @@
       <a class="nav-link text-white" routerLink="/about">About</a>
     </li>
     <!-- product-->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link text-white" routerLink="/products">Product</a>
-    </li>
+    </li> -->
 
     <!-- Partner -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link text-white" routerLink="/partner">Partner</a>
-    </li>
+    </li> -->
 
     <!-- Cards (Dropdown) -->
     <li class="nav-item dropdown">
@@ -140,20 +143,23 @@
       <a href="" (click)="openDonation()" class="nav-link text-white" target="_blank">Donation</a>
     </li>
 
-    <!-- Employment -->
-    <li class="nav-item">
-      <a href="" (click)="openEmployment()" class="nav-link text-white" target="_blank">Employment</a>
-    </li>
 
     <!-- Blog -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a href="" (click)="openBlog()" class="nav-link text-white" target="_blank">Blog</a>
+    </li> -->
+    <li class="nav-item">
+      <a routerLink="/domain" class="nav-link text-white">Domain</a>
     </li>
 
+    <li class="nav-item">
+      <a routerLink="/hosting" class="nav-link text-white">Hosting</a>
+    </li>
     <!-- Contact -->
     <li class="nav-item">
       <a class="nav-link text-white" routerLink="/contact">Contact</a>
     </li>
+
   </ul>
 
 </div>
